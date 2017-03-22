@@ -1,0 +1,15 @@
+---
+date: 2004-06-04T00:00:00Z
+meta:
+  _searchme: "1"
+published: true
+status: publish
+tags: []
+title: log4cxx使用tips
+type: post
+url: /2004/06/04/log4cxx-tips/
+---
+
+1. 在MFC的程序中，调用log4cxx::xml::DOMConfigurator::configure(_T("logger.xml"));只能在CxxxApp::InitInstance的第一行调用。
+<p></p>
+2. RollingFileLogger，这个file logger很不错，可设置&lt;param name="MaxFileSize" value="100KB"/&gt;。但是如果用了它，在程序结束对LoggerPtr进行析构时，会出一个mutex的异常，我现在是在 InitInstance的最后执行logger.p = NULL来避免析构，由Windows自己完成资源的释放。

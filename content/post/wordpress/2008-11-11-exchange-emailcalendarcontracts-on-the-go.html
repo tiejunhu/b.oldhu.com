@@ -1,0 +1,13 @@
+---
+date: 2008-11-11T00:00:00Z
+meta:
+  spaces_015d7b4f062484448a25cb284aad14b2_permalink: http://cid-a65130fddc997385.users.api.live.net/Users(-6462330123414047867)/Blogs('A65130FDDC997385!105')/Entries('A65130FDDC997385!1296')?authkey=v0kyaOGV0mw%24
+published: true
+status: publish
+tags: []
+title: Exchange email/calendar/contracts on the go
+type: post
+url: /2008/11/11/exchange-emailcalendarcontracts-on-the-go/
+---
+
+<div id="msgcns!A65130FDDC997385!1296" class="bvMsg"><p>ON PALM OS.</p> <p>First of all, make sure your email server support ActiveSync access. Particular in my case, I need to let my boss apply a “Windows Mobile Access” account for me.</p> <p>Windows mobile access is actually a https(or http) service. To make it work on Centro, do the following steps.</p> <p>1. Upgrade versamail. Navigate your blazer to <a href="http://www.palm.com/versamail407">http://www.palm.com/versamail407</a> to download the latest versamail upgrade program. It’s in fact a full installation. I successfully installed it on a flashed Centro without any versamail pre-installed.</p> <p>2.  Upgrade the root certificate when needed. Centro leaves the factory with only a few root certificates installed. If the windows mobile access is using https and the https’ root certificate is not in that small set, versamail will fail on sync. Follow this link to do the job: <a title="http://www.palm.com/us/support/downloads/versamail/certmodtool.html" href="http://www.palm.com/us/support/downloads/versamail/certmodtool.html">http://www.palm.com/us/support/downloads/versamail/certmodtool.html</a>. To learn exactly which root certificate you need to install, access the windows mobile access URL with https prefix in firefox and click the leading icon.</p> <p>3. Config versamail and sync! And, done.</p></div>

@@ -1,0 +1,12 @@
+---
+date: 2005-03-29T00:00:00Z
+meta: {}
+published: true
+status: publish
+tags: []
+title: BitTorrent协议简述
+type: post
+url: /2005/03/29/bittorrent-protocol-summary/
+---
+
+<!-- If you want a menu, uncomment the following lines and    put (require 'emacs-wiki-menu) in your Emacs setup somewhere.         -->          <!-- Page published by Emacs Wiki begins here --> <p> 来自<a href="http://bittorrent.com/protocol.html">http://bittorrent.com/protocol.html</a>  </p>  <p> 可同时下载一个文件的多个部分，下载者同时也上载。  </p>  <p> BT的组成部分：  </p>  <ul><li>一个普通的web server </li><li>一个静态的metainfo文件 </li><li>一个BT tracker </li><li>一个根源下载程序 </li><li>最终用户的web浏览器 </li><li>最终用户的下载程序 </li></ul>  <p> 服务器端需要的步骤：  </p>  <ul><li>启动tracker </li><li>启动web server </li><li>在web服务器上定义.torrent文件的mimetype为application/x-bittorrent </li><li>用完整的待下载的文件生成一个.torrent文件(metainfo文件) </li><li>把.torrent文件放到web server上 </li><li>把.torrent文件链接到一个web页面上 </li><li>启动一个根源下载程序 </li></ul>  <p> 进行下载的步骤  </p>  <ul><li>安装BT客户端 </li><li>Surf the web </li><li>点击.torrent文件 </li><li>下载.torrent文件 </li><li>用BT客户端打开.torrent文件，等待下载成功 </li></ul>  <p> 网络活动过程  </p>  <ul><li>web server用正常方式对.torrent文件提供服务 </li><li>BT tracker从所有的下载者获取信息，并返回给他们随机的peer列表。这个过  程通过http或https协议完成。 </li><li>下载者定期向BT tracker提交信息，通知tracker它们的进度。他们之间相互  的上下载是通过直接socket连接进行。这个过程通过BT peer protocol进行，  基于TCP。 </li><li>根源下载程序只进行上载，不下载，因为它那里文件已经完整了。根源下载程  序是必须的，没有它的话第一次下载就不能完成。对于比较流行的内容，一段  时间后就可以把根源下载程序停止了。 </li></ul>  <p> 协议的细节可参考原文。 </p>

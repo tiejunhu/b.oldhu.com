@@ -1,0 +1,13 @@
+---
+date: 2008-12-11T00:00:00Z
+meta:
+  spaces_015d7b4f062484448a25cb284aad14b2_permalink: http://cid-a65130fddc997385.users.api.live.net/Users(-6462330123414047867)/Blogs('A65130FDDC997385!105')/Entries('A65130FDDC997385!1339')?authkey=v0kyaOGV0mw%24
+published: true
+status: publish
+tags: []
+title: Some notes about Documentum's dm_note
+type: post
+url: /2008/12/11/some-notes-about-documentums-dm_note/
+---
+
+<div id="msgcns!A65130FDDC997385!1339" class="bvMsg"><ul> <li>creating a dm_note: session.newObject will do  <li>attach a dm_note to a sysobject: IDfNote.addNote  <li>detach a dm_note: IDfNote.removeNoteEx  <li>the relationship is stored in dm_relation with relation_name='DM_ANNOTATE'  <li>check in a new version of dm_note object won't update dm_relation automaticly, you need to detach the old version of dm_note and attach the new version of dm_note manually.  <li>inside dm_relation, child_id is not r_object_id of dm_note. It's the i_chronicle_id. so you need to use child_id and child_label to retrieve the right dm_note object as complex as:</li></ul> <blockquote> <p>String dql = &quot;Select child.r_object_id as object_id from dm_sysobject (all) child, dm_relation relation where &quot; +<br />&quot;((child.i_chronicle_id = relation.child_id and any child.r_version_label = relation.child_label) &quot; +<br />&quot;or (child.r_object_id = relation.child_id and relation.child_label is nullstring)) &quot; +<br />&quot;and relation.relation_name='DM_ANNOTATE' and relation.parent_id= '&quot; + doc.getObjectId().toString() + &quot;'&quot; ;  <p>IDfQuery query = sMgr.getQuery();<br />query.setDQL(dql);<br />col = query.execute(session, IDfQuery.DF_READ_QUERY);<br />while (col.next()) &#123;<br />    IDfTypedObject object = col.getTypedObject();<br />    IDfNote note = (IDfNote) session.getObject(object.getId(&quot;object_id&quot;));<br />    log(&quot;\tnote: &quot; + note.getObjectId().toString() + &quot;, with name: &quot; + note.getObjectName());<br />&#125;<br />col.close(); </p></blockquote></div>

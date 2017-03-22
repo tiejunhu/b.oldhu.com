@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Google on OLDHU&#39;s BLOG</title>
+    <link>http://b.oldhu.com/tags/google/index.xml</link>
+    <description>Recent content in Google on OLDHU&#39;s BLOG</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="http://b.oldhu.com/tags/google/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Android绑定Google帐号方法</title>
+      <link>http://b.oldhu.com/2009/10/16/how-to-bind-google-account-on-android-inside-gfw/</link>
+      <pubDate>Fri, 16 Oct 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://b.oldhu.com/2009/10/16/how-to-bind-google-account-on-android-inside-gfw/</guid>
+      <description>需要有root
+&lt;ul&gt;
+	&lt;li&gt;adb remount&lt;/li&gt;
+	&lt;li&gt;adb shell&lt;/li&gt;
+	&lt;li&gt;&lt;span style=&#34;font-size:15px;color:#222222;font-family:&#39;Courier 10 Pitch&#39;, Courier, monospace;line-height:21px;white-space:pre;&#34;&gt;echo &#34;74.125.113.100  android.clients.google.com
+&lt;/span&gt;&lt;span style=&#34;font-size:15px;color:#222222;font-family:&#39;Courier 10 Pitch&#39;, Courier, monospace;line-height:21px;white-space:pre;&#34;&gt;74.125.113.100  android.l.google.com&#34; &amp;gt;&amp;gt; /etc/hosts&lt;/span&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;strong&gt;reboot&lt;/strong&gt;&lt;/li&gt;
+	&lt;li&gt;now register with google&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,22 @@
+---
+date: 2005-12-23T00:00:00Z
+meta: {}
+published: true
+status: publish
+tags: []
+title: Redhat中的IO性能
+type: post
+url: /2005/12/23/io-perf-in-redhat/
+---
+
+今天在测试中发现，Redhat中的小size random IO性能特别差。测试中测试了两个Redhat版本：AS 3 Update 6和AS4 Update2，同时测试了本地硬盘和光纤存储，小size random IO性能实在是太差。IOmeter测试的结果显示单线程4KB 100% random IO的性能才只有几百KB。
+
+有人知道为什么吗？
+
+我想我基本明白了原因。
+
+IO size = 4KB，所以每一个I/O，只有一块硬盘在发挥作用。因此IOPS就受限于单块硬盘的性能。而单块硬盘的性能可以做如下的分析：
+
+146G的10KRPM硬盘，比如seagate的，参数如下(<a href="http://www.seagate.com/cda/products/discsales/enterprise/tech/1,1084,652,00.html">link</a>)：
+
+<ol><li>Full Disc Seek, Read  					9.5 msec typical</li><li>Full Disc Seek, Write  					10.3 msec typical</li><li>Average Latency  					3 msec</li></ol>所以，在最坏情况下，每一次读Cache都会失效，都需要从硬盘重新读数据。一次最长时间的Seek需要大约13ms，这样IOPS = 1000 / 13 = 77。Bandwidth = 76 * 4 = 307 KB/S。

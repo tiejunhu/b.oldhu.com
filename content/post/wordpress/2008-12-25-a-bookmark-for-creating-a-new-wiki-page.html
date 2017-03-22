@@ -1,0 +1,13 @@
+---
+date: 2008-12-25T00:00:00Z
+meta:
+  spaces_015d7b4f062484448a25cb284aad14b2_permalink: http://cid-a65130fddc997385.users.api.live.net/Users(-6462330123414047867)/Blogs('A65130FDDC997385!105')/Entries('A65130FDDC997385!1351')?authkey=v0kyaOGV0mw%24
+published: true
+status: publish
+tags: []
+title: A bookmark for creating a new wiki page
+type: post
+url: /2008/12/25/a-bookmark-for-creating-a-new-wiki-page/
+---
+
+<div id="msgcns!A65130FDDC997385!1351" class="bvMsg"><p>I use moinmoin as my local wiki engine. It is excellent for personal use because it needs no http server and database. A python installation is enough. <p>To create a new wiki page in moinmoin, you need to first edit an existing page to include a link to the new page, then click the link to create it. To make this quicker, I created the following script. All you need to do is creating a bookmark to point to the following URL, then edit the bookmark to match your hostname/port, and…go. <blockquote> <p>javascript:(function()&#123;pageName=prompt(&quot;Please input page name&quot;);if(pageName.length&gt;0)&#123;window.open('<a href="http://localhost:8080/'">http://localhost:8080/'</a> + pageName);&#125;&#125;)()</blockquote>  </div>

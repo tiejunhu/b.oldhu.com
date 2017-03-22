@@ -1,0 +1,21 @@
+---
+date: 2009-07-18T00:00:00Z
+meta: {}
+published: true
+status: publish
+tags:
+- Mac
+- osx
+- snow leopard
+title: Boot Snow Leopard in 64bit Mode
+type: post
+url: /2009/07/18/boot-snow-leopard-in-64bit-mode/
+---
+
+<p>Currently, SL does not boot in 64 bit mode by default. You can check it by running "uname -a" in terminal. To boot it in 64 bit, press 6 and 4 while booting or set the nvram:</p>
+
+<pre>$ sudo nvram boot-args="arch=x86_64"</pre>
+
+<p>In 64bit mode, the kernel will run with architecture of x86_64. So it loads only x86_64 kexts. Which means CiscoVPN and VMware Fusion's kexts won't load. If you need CiscoVPN and VMware Fusion like me, you need to switch back to 32bit kernel by this command:</p>
+
+<pre>$ sudo nvram boot-args="arch=i386"</pre>

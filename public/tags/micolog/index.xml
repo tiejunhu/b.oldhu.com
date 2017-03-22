@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Micolog on OLDHU&#39;s BLOG</title>
+    <link>http://b.oldhu.com/tags/micolog/index.xml</link>
+    <description>Recent content in Micolog on OLDHU&#39;s BLOG</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="http://b.oldhu.com/tags/micolog/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Import from LiveJournal</title>
+      <link>http://b.oldhu.com/2009/08/11/import-from-live-journal/</link>
+      <pubDate>Tue, 11 Aug 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://b.oldhu.com/2009/08/11/import-from-live-journal/</guid>
+      <description>&lt;p&gt;I wrote some &lt;a href=&#34;http://github.com/oldhu/micolog-oldhu/tree/master&#34; target=&#34;_blank&#34;&gt;code&lt;/a&gt; to import all my events(LiveJournal&#39;s name of blog post) into this site.&lt;/p&gt;
+
+&lt;p&gt;Now this site contains all my blog posts.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Blogging from Textmate</title>
+      <link>http://b.oldhu.com/2009/07/16/blogging-from-textmate/</link>
+      <pubDate>Thu, 16 Jul 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://b.oldhu.com/2009/07/16/blogging-from-textmate/</guid>
+      <description>&lt;p&gt;Now micolog-oldhu supports blogging from textmate! Check the github.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Continue to hack Micolog&#39;s code</title>
+      <link>http://b.oldhu.com/2009/07/11/continue-to-hack-micologs-code/</link>
+      <pubDate>Sat, 11 Jul 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://b.oldhu.com/2009/07/11/continue-to-hack-micologs-code/</guid>
+      <description>&lt;p&gt;Done:&lt;/p&gt; &lt;ul&gt; &lt;li&gt;split admin.py and model.py &lt;/li&gt;&lt;li&gt;importing live space now works &lt;/li&gt;&lt;/ul&gt; &lt;p&gt;Todo:&lt;/p&gt; &lt;ul&gt; &lt;li&gt;browse by date with default skin &lt;/li&gt;&lt;li&gt;show tags in default skin &lt;/li&gt;&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Hacking Micolog&#39;s Code</title>
+      <link>http://b.oldhu.com/2009/07/10/hacking-micologs-code/</link>
+      <pubDate>Fri, 10 Jul 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://b.oldhu.com/2009/07/10/hacking-micologs-code/</guid>
+      <description>&lt;p&gt;* split large source file into modules&lt;/p&gt;&lt;p&gt;* adding code to import live space posts&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>The first one</title>
+      <link>http://b.oldhu.com/2009/07/07/the-first-one/</link>
+      <pubDate>Tue, 07 Jul 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://b.oldhu.com/2009/07/07/the-first-one/</guid>
+      <description>&lt;p&gt;Finally get it run on google apps&#39; app engine.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

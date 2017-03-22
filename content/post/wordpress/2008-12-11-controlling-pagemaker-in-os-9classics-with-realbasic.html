@@ -1,0 +1,13 @@
+---
+date: 2008-12-11T00:00:00Z
+meta:
+  spaces_015d7b4f062484448a25cb284aad14b2_permalink: http://cid-a65130fddc997385.users.api.live.net/Users(-6462330123414047867)/Blogs('A65130FDDC997385!105')/Entries('A65130FDDC997385!1340')?authkey=v0kyaOGV0mw%24
+published: true
+status: publish
+tags: []
+title: Controlling PageMaker in OS 9(Classics) with REALbasic
+type: post
+url: /2008/12/11/controlling-pagemaker-in-os-9classics-with-realbasic/
+---
+
+<div id="msgcns!A65130FDDC997385!1340" class="bvMsg"><p>tags: PageMaker OS9 REALbasic Automation</p> <p>Programming env: OS 9.2, REALbasic 3.2.1, PageMaker 6.5</p> <h5>1. Initializing AppleEvent Object</h5> <p>ae = NewAppleEvent(&quot;misc&quot;, &quot;dosc&quot;, &quot;AK65&quot;)<br />ae.Timeout = 3600 <br />// timeout at 3600 seconds. Some operations in PageMaker are really time consuming, so the default timeout value will really time out. </p> <h5></h5> <h5>2. Define Function to Execute Commands</h5> <p>Function ExecCmd(cmd As String) As String<br />  ae.StringParam(&quot;----&quot;) = cmd<br />  if ae.Send then<br />    return ae.ReplyString<br />  else<br />    raise new NilObjectException<br />  end if<br />End Function  <h5>3. Command Example</h5> <p>  cmd = &quot;Open &quot;&quot;&quot; + fullPath + &quot;&quot;&quot;&quot;<br />  result = ExecCmd(cmd)  <h5>4. Parsing Result</h5> <p>Many of PageMaker’s reply is a long string with fields separated by comma. Realbasic’s NthField/CountFields can parse such strings, but it’s much slow. The following function can help you with it.</p> <p>Function NextToken(ByRef wholeStr As String, ByRef fieldStart As Integer) As String<br />  Dim fieldIndex As Integer<br />  Dim token As String<br />  if fieldStart &lt;= 0 or fieldStart &gt; Len(wholeStr) then<br />    return &quot;&quot;<br />  end if<br />  fieldIndex = InStr(fieldStart, wholeStr, &quot;,&quot;)<br />  if fieldIndex &gt; 0 then<br />    token = Mid(wholeStr, fieldStart, fieldIndex  - fieldStart)<br />    fieldStart = fieldIndex + 1<br />  else<br />    token = Mid(wholeStr, fieldStart, Len(wholeStr) + 1 - fieldStart)<br />    fieldStart = Len(wholeStr) + 1<br />  end if<br />  return token<br />End Function  <p>Example code to call this function:  <p>cmd = &quot;GetFontList&quot;<br />result = ExecCmd(cmd)<br />fieldStart = 1 // init fieldStart variable, it will be changed at each call of NextToken<br />totalFonts = Val(NextToken(result, fieldStart)) // first field is count of all fonts<br />for fontIndex = 1 to totalFonts<br />    fontName = NextToken(result, fieldStart)<br />    fontId = NextToken(result, fieldStart)<br />    installed = Val(NextToken(result, fieldStart))<br />    used = Val(NextToken(result, fieldStart)) <br />next </p></p></p></div>

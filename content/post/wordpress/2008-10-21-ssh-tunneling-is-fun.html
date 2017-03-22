@@ -1,0 +1,13 @@
+---
+date: 2008-10-21T00:00:00Z
+meta:
+  spaces_015d7b4f062484448a25cb284aad14b2_permalink: http://cid-a65130fddc997385.users.api.live.net/Users(-6462330123414047867)/Blogs('A65130FDDC997385!105')/Entries('A65130FDDC997385!1252')?authkey=v0kyaOGV0mw%24
+published: true
+status: publish
+tags: []
+title: SSH Tunneling Is Fun
+type: post
+url: /2008/10/21/ssh-tunneling-is-fun/
+---
+
+<div id="msgcns!A65130FDDC997385!1252" class="bvMsg"><p>首先，我的wireless router的port forwarding竟然不能改端口，就是说，只能从对外接口的21转到内部某一IP的21，从外面接口的80转到内部某一IP的80。。。让我不得不修改内部多个服务的端口。  <p style="text-align:justify;">正文开始，SSH tunnel还是很有趣的，我的目标是从Office通过家里运行的CCProxy上网，以访问公司不让访问的网站…直接从Wireless Router做端口转发到CCProxy上当然可以，可惜公司的过滤比较强，通过http proxy转发的URL中含有不允许访问的URL的时候，照样被禁止。因此，现在的目标就改为：从Office与家里的另一个Linux box之间建立SSH tunnel，然后通过SSH tunnel去访问CCProxy。其实在Linux上配一个squid应该也可以的，只是我的Linux是mips的，apt-get装上的squid一运行就退出，还是不折腾了。  <p style="text-align:justify;"><img src="http://byfiles.storage.msn.com/y1pn1dgEDMb8_gvEJefd_WSnnvbXv4_TLIcPPPv61o82EbuImSnlR8SBVhVC9G_W_tfNn6zHqA0lYk?PARTNER=WRITER" border="0" />  <p> <p>调通了以后，还是很简单的。首先从公司向外访问只有21和80是通的，因此要从wireless router转发21端口到192.168.1.3的ssh服务上，由于我的变态router，只能修改Linux上的ssh端口。  <p style="text-align:justify;">Linux上的OpenSSH是现成的，只需要把port从22改到21。从Office位置的电脑直接运行putty，在其中的tunnel中配置local port 80, remote address 192.168.1.2:80，然后用putty连接wireless router对外的ip的21端口，登录，tunnel就完成了。  <p style="text-align:justify;">设置Office位置的电脑的浏览器，proxy设成本地的80端口，这样，数据就从本地的80端口，通过ssh通道到达wireless router的外部接口，然后转发到linux上，linux再转发到ccproxy上……由于流经公司网络的数据都经过了ssh加密，这回它没办法了…  <br /></div>

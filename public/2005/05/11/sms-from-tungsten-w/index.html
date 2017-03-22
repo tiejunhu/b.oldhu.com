@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title> 在Tungsten W中发送短信 &middot; OLDHU&#39;s BLOG </title>
+
+
+<link rel="stylesheet" href="http://b.oldhu.com/css/slim.css">
+<link rel="stylesheet" href="http://b.oldhu.com/css/highlight.min.css">
+<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Source+Code+Pro' rel='stylesheet' type='text/css'>
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="/favicon.ico">
+
+
+<link href="" rel="alternate" type="application/rss+xml" title="OLDHU&#39;s BLOG" />
+
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+  <h1 class="site-title"><a href="http://b.oldhu.com/">OLDHU&#39;s BLOG</a></h1>
+  <p class="site-tagline">Archive my life here</p>
+  <div class="nav">
+    <a class="nav-btn" href="#">
+      <span class="ci ci-burger"></span>
+    </a>
+    <ul class="nav-list">
+       
+	  <li class="spacer">&ac;</li>
+
+      <li><a href="https://github.com/oldhu">Github</a></li> 
+      <li><a href="https://twitter.com/archivemylife">Twitter</a></li> 
+    </ul>
+  </div>
+</div>
+    <div class="content">
+      <div class="posts">
+        <div class="post">
+          <h2 class="post-title"><a href="http://b.oldhu.com/2005/05/11/sms-from-tungsten-w/">在Tungsten W中发送短信</a></h2>
+          <span class="post-date">May 11, 2005 </span>
+          <div class="post-content">
+            关键字：Tungsten W, TW, 短信, SMS, UCS2, PDU, Serial, Phone
+
+<h3>1 为啥要发</h3><p>TW是很多人心目中的理想Palm OS智能手机：Palm OS版本合适，CPU速度不快也不慢，高分彩屏，主要被人抨击的问题有三个： </p><ol><li>太大 </li><li>没有Facer，只能用耳机打电话 </li><li>中文短信 </li></ol><p>这些问题中，问题1谁也没办法，本来就做的这么大，考虑到带了它就相当于同时带了手机和Palm，其实这个大小还是可以接收的。问题2有了很多解决办法，在tompda上可以搜到不少图片。 </p><p>对于问题3，现在的办法是CSMS + CSMSRead。这两个软件一起使用问题不少，比如无法直接回复、管理功能差、CSMS是收费软件等。要解决这个问题，我们需要重新专门为TW编写一个短信收发的管理软件。要编写这个软件，首先要解决的问题就是如何发送短信。 </p><h3>2 已有的API</h3><p>Palm 作为一个功能完善的操作系统，已经内置了多组短信相关的API，可用于发送的API在Palm OS Programmer's API Reference(Palm OS 5 SDK (68K) R2)中有两组：Part III中的Telephony SMS和Part IV中的SMS Exchange Libary。 </p><p>这两组API都可以完成SMS发送的基本任务，但是当需要发送中文SMS的时候，都遇到了问题。 </p><p>发 送中文SMS，需要使用PDU模式，并把中文进行UCS2编码。Telephony SMS的问题是，对于函数TelSmsSendMessage，它会对传入的字符串进行按设置进行编码，如果把编码方式设置为 kTelSmsUCS2Encoding，它就会试图把待发送的字符串编码为UCS2格式。这本来是个不错的设计，对于传入的英文字符，这个函数也能正确 地编码。但是TW无法支持把中文字符串也正确编码为UCS2格式，结果当传入中文字符的时候，函数就会出错。其实这个函数如果把编码的任务交给调用者，自 己把接收到的字符串原样发出的话，其适用面将更广。 </p><p>SMS Exchange Libary的问题刚好相反，它对接收到的数据不做处理，直接发出，但就是无法把发送模式设置为UCS2，在其发出的PDU串中，用户信息编码方式那里永远无法设置成表示UCS2编码的08。 </p><h3>3 那怎么办？</h3><p>既然这些库都不能用，我们就自己发送AT指令！ </p><p>首先可以想到的是TelSendCommandString方法，这个方法Palm提供给我们就是用来发送AT命令的。可惜在TW上一试，返回的错误信息是不支持这个API。 </p><p>打开palmOne提供的SDK 3.0，里面有一个TW的例子，其中提供了很多新的API，有一个叫作TelOemSendCommandString，可是没有文档，如何使用？ </p><p>经 过我n次软启的测试，终于找到了这个函数的调用方法：同时加载kTelMgrLibName和kTelOemMgrLibName这两个库，然后正常使用 TelOpen得到AppId，调用TelOemSendCommandString时使用kTelOemMgrLibName的RefNum和 TelOpen返回的AppId，就可以成功调用。 </p><p>通过使用TelOemSendCommandString，终于可以向电话发送AT 指令了，电话也能正确地响应。可惜这个函数又出现一个问题，发送短信时需要连续向电话发送两条指令，第一条指令发出后，要经过很长时间函数才返回，然后才 能发出第二条指令。这样每发一条短信都要2分钟之久。 </p><p>最终这个API也被我放弃了。这时候分析一下CSMS，我发现它只调用了 Serial Manager的系列函数。通过程序测试，我发现TW上有个名字为JVDR的串行设备，这就是我们的手机模块。接下来的事情就容易了，通过SrmSend 和SrmReceive，我们就可以通过AT指令和电话交互了，所有的AT指令都直接发给了电话，电话的响应我们也可以直接接收。找一本GSM的AT指令 参考手册吧，我们可以任意地指挥我们的电话了。 </p>
+
+          </div>
+        </div>
+        <div class="pagination">
+          <a class="btn previous " href="http://b.oldhu.com/2005/06/20/sat-life/"> Prev</a>  
+          <a class="btn next " href="http://b.oldhu.com/2005/04/26/nef-format/"> Next</a> 
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer">
+  
+  <p>Powered by <a href="http://gohugo.io">Hugo</a>. This theme—Slim—is open sourced on <a href="https://github.com/zhe/hugo-theme-slim">Github</a>.</p>
+  
+</div>
+
+  </div>
+  <script src="http://b.oldhu.com/js/slim.js"></script>
+  <script src="http://b.oldhu.com/js/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  <script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-9830681-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+</body>
+
+</html>

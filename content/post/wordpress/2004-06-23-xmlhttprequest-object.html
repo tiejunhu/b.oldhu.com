@@ -1,0 +1,43 @@
+---
+date: 2004-06-23T00:00:00Z
+meta: {}
+published: true
+status: publish
+tags: []
+title: XmlHttpRequest Object
+type: post
+url: /2004/06/23/xmlhttprequest-object/
+---
+
+用了Gmail的都发现，很多操作gmail是不用提交页面的，比如s(star)，当你用x选中一个conversion，按下s要标记为star的时候，google根本没有提交整个页面就完成了这项操作，这大大改善了基于Web的用户界面的友好程度。
+
+<p>这里实现的秘密就是Xml Http Request对象。</p><p>在gmail的主页面中，有这样两个frameset:</p>
+
+<p><font face="courier new,courier,monospace" size="2">&lt;<span class="start-tag">frameset</span><span class="attribute-name"> rows</span>=<span class="attribute-value">'100%,*' </span><span class="attribute-name">border</span>=<span class="attribute-value">0</span>&gt;
+  &lt;<span class="start-tag">frame</span><span class="attribute-name"> name</span>=<span class="attribute-value">main </span><span class="attribute-name">src</span>=<span class="attribute-value">/gmail/html/loading.html </span><span class="attribute-name">frameborder</span>=<span class="attribute-value">0 </span><span class="attribute-name">noresize </span><span class="attribute-name">scrolling</span>=<span class="attribute-value">no</span>&gt;
+  &lt;<span class="start-tag">frame</span><span class="attribute-name"> name</span>=<span class="attribute-value">js </span><span class="attribute-name">src</span>=<span class="attribute-value">/gmail?view=page&amp;name=js&amp;ver=7e0ccc547f92bc35 </span><span class="attribute-name">frameborder</span>=<span class="attribute-value">0 </span><span class="attribute-name">noresize</span>&gt;
+&lt;/<span class="end-tag">frameset</span>&gt;</font></p><p>第二个frameset名为js，高度为0，可想而知，这应该是这个页面背后使用的所有js脚本。这个脚本下载后发现有250KB之多。这里面有这样一个函数：
+
+<font face="courier new,courier,monospace" size="2">
+    <pre>
+    function XmlHttpCreate(){
+    var xmlhttp=null;
+    if(is_ie){
+        var control=(is_ie5)?"Microsoft.XMLHTTP":"Msxml2.XMLHTTP";
+        try{
+            xmlhttp=new ActiveXObject(control);
+        }catch(e){
+            DumpException(e);
+            alert("You need to enable active scripting and activeX controls.");
+        }
+    }else {
+        xmlhttp=new XMLHttpRequest();
+        if(!xmlhttp){
+            alert("XMLHttpRequest is not supported on this browser.");
+        }
+    }
+    return xmlhttp;
+}
+</pre>
+
+啊，就在这里了。这就是有名的Xml HTTP Request对象了，这时候我才发现，这个对象不是gmail自己实现的，而是浏览器原本就支持的。google for it，找到了这样一个页面 <!--StartFragment --> <a href="http://jibbering.com/2002/4/httprequest.html"><strong>Using the XML HTTP Request object</strong></a><strong> </strong>原来这东西2002年就有了，我可真是孤陋啊。</font></font></p>

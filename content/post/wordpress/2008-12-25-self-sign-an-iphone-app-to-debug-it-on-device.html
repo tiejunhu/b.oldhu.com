@@ -1,0 +1,13 @@
+---
+date: 2008-12-25T00:00:00Z
+meta:
+  spaces_015d7b4f062484448a25cb284aad14b2_permalink: http://cid-a65130fddc997385.users.api.live.net/Users(-6462330123414047867)/Blogs('A65130FDDC997385!105')/Entries('A65130FDDC997385!1350')?authkey=v0kyaOGV0mw%24
+published: true
+status: publish
+tags: []
+title: Self-sign an iPhone app to debug it on device
+type: post
+url: /2008/12/25/self-sign-an-iphone-app-to-debug-it-on-device/
+---
+
+<div id="msgcns!A65130FDDC997385!1350" class="bvMsg">1. Create a code sign certificate in KeyChain tool.<br /><div style="margin-left:40px;">    a. Keep the validation period as 365 days. (3000 days obviously won't work...)<br /></div><div style="margin-left:40px;">    b. Trust the certificate after you created it<br /></div>2. Add two user-defined settings in project settings<br /><div style="margin-left:40px;">    PROVISIONING_PROFILE_ALLOWED = NO<br /></div><div style="margin-left:40px;">    PROVISIONING_PROFILE_REQUIRED = NO<br /></div>3. Change &quot;Code Signing Identity&quot; in project settings to your certificate<br />4. Add the following key/value in info.plist<br /><div style="margin-left:40px;">    SignerIdentity = Apple iPhone OS Application Signing<br /></div> <br /></div>

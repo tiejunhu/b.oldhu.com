@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title> Controlling PageMaker in OS 9(Classics) with REALbasic &middot; OLDHU&#39;s BLOG </title>
+
+
+<link rel="stylesheet" href="http://b.oldhu.com/css/slim.css">
+<link rel="stylesheet" href="http://b.oldhu.com/css/highlight.min.css">
+<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Source+Code+Pro' rel='stylesheet' type='text/css'>
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="/favicon.ico">
+
+
+<link href="" rel="alternate" type="application/rss+xml" title="OLDHU&#39;s BLOG" />
+
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+  <h1 class="site-title"><a href="http://b.oldhu.com/">OLDHU&#39;s BLOG</a></h1>
+  <p class="site-tagline">Archive my life here</p>
+  <div class="nav">
+    <a class="nav-btn" href="#">
+      <span class="ci ci-burger"></span>
+    </a>
+    <ul class="nav-list">
+       
+	  <li class="spacer">&ac;</li>
+
+      <li><a href="https://github.com/oldhu">Github</a></li> 
+      <li><a href="https://twitter.com/archivemylife">Twitter</a></li> 
+    </ul>
+  </div>
+</div>
+    <div class="content">
+      <div class="posts">
+        <div class="post">
+          <h2 class="post-title"><a href="http://b.oldhu.com/2008/12/11/controlling-pagemaker-in-os-9classics-with-realbasic/">Controlling PageMaker in OS 9(Classics) with REALbasic</a></h2>
+          <span class="post-date">Dec 11, 2008 </span>
+          <div class="post-content">
+            <div id="msgcns!A65130FDDC997385!1340" class="bvMsg"><p>tags: PageMaker OS9 REALbasic Automation</p> <p>Programming env: OS 9.2, REALbasic 3.2.1, PageMaker 6.5</p> <h5>1. Initializing AppleEvent Object</h5> <p>ae = NewAppleEvent(&quot;misc&quot;, &quot;dosc&quot;, &quot;AK65&quot;)<br />ae.Timeout = 3600 <br />// timeout at 3600 seconds. Some operations in PageMaker are really time consuming, so the default timeout value will really time out. </p> <h5></h5> <h5>2. Define Function to Execute Commands</h5> <p>Function ExecCmd(cmd As String) As String<br />  ae.StringParam(&quot;----&quot;) = cmd<br />  if ae.Send then<br />    return ae.ReplyString<br />  else<br />    raise new NilObjectException<br />  end if<br />End Function  <h5>3. Command Example</h5> <p>  cmd = &quot;Open &quot;&quot;&quot; + fullPath + &quot;&quot;&quot;&quot;<br />  result = ExecCmd(cmd)  <h5>4. Parsing Result</h5> <p>Many of PageMaker’s reply is a long string with fields separated by comma. Realbasic’s NthField/CountFields can parse such strings, but it’s much slow. The following function can help you with it.</p> <p>Function NextToken(ByRef wholeStr As String, ByRef fieldStart As Integer) As String<br />  Dim fieldIndex As Integer<br />  Dim token As String<br />  if fieldStart &lt;= 0 or fieldStart &gt; Len(wholeStr) then<br />    return &quot;&quot;<br />  end if<br />  fieldIndex = InStr(fieldStart, wholeStr, &quot;,&quot;)<br />  if fieldIndex &gt; 0 then<br />    token = Mid(wholeStr, fieldStart, fieldIndex  - fieldStart)<br />    fieldStart = fieldIndex + 1<br />  else<br />    token = Mid(wholeStr, fieldStart, Len(wholeStr) + 1 - fieldStart)<br />    fieldStart = Len(wholeStr) + 1<br />  end if<br />  return token<br />End Function  <p>Example code to call this function:  <p>cmd = &quot;GetFontList&quot;<br />result = ExecCmd(cmd)<br />fieldStart = 1 // init fieldStart variable, it will be changed at each call of NextToken<br />totalFonts = Val(NextToken(result, fieldStart)) // first field is count of all fonts<br />for fontIndex = 1 to totalFonts<br />    fontName = NextToken(result, fieldStart)<br />    fontId = NextToken(result, fieldStart)<br />    installed = Val(NextToken(result, fieldStart))<br />    used = Val(NextToken(result, fieldStart)) <br />next </p></p></p></div>
+
+          </div>
+        </div>
+        <div class="pagination">
+          <a class="btn previous " href="http://b.oldhu.com/2008/12/17/yesterday/"> Prev</a>  
+          <a class="btn next " href="http://b.oldhu.com/2008/12/11/some-notes-about-documentums-dm_note/"> Next</a> 
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer">
+  
+  <p>Powered by <a href="http://gohugo.io">Hugo</a>. This theme—Slim—is open sourced on <a href="https://github.com/zhe/hugo-theme-slim">Github</a>.</p>
+  
+</div>
+
+  </div>
+  <script src="http://b.oldhu.com/js/slim.js"></script>
+  <script src="http://b.oldhu.com/js/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  <script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-9830681-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+</body>
+
+</html>

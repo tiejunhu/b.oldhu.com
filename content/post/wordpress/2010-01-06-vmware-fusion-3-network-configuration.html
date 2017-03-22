@@ -1,0 +1,37 @@
+---
+date: 2010-01-06T00:00:00Z
+meta: {}
+published: true
+status: publish
+tags:
+- Mac
+- osx
+- vmware
+title: VMware Fusion 3 Network Configuration
+type: post
+url: /2010/01/06/vmware-fusion-3-network-configuration/
+---
+
+<p>In this <a href="http://b.oldhu.com/2009/07/15/vmware-fusion-network-configuration.html">post</a>, I summarized how to config VMware Fusion 2's network.</p>
+
+<p>For the new VMware Fusion 3, it's much easier. VMware Fusion 3 has a separate configuration file for networking only. The file is:</p>
+
+<pre>/Library/Application Support/VMware Fusion/networking</pre>
+
+<p>A sample file as following:</p>
+
+<pre>VERSION=1,0
+answer VNET_1_DHCP no
+answer VNET_1_HOSTONLY_NETMASK 255.255.255.0
+answer VNET_1_HOSTONLY_SUBNET 172.16.125.0
+answer VNET_1_VIRTUAL_ADAPTER no
+answer VNET_1_VIRTUAL_ADAPTER_ADDR 172.16.125.1
+answer VNET_8_DHCP no
+answer VNET_8_DHCP_CFG_HASH E7EBB6E40048285A05D25835904AFD8BEC1CD2B2
+answer VNET_8_HOSTONLY_NETMASK 255.255.255.0
+answer VNET_8_HOSTONLY_SUBNET 192.168.42.0
+answer VNET_8_NAT yes
+answer VNET_8_VIRTUAL_ADAPTER yes
+answer VNET_8_VIRTUAL_ADAPTER_ADDR 192.168.42.1</pre>
+
+<p>You just change entries accordingly, then do <b>sudo ./boot.sh --restart</b> to active the new config.</p>

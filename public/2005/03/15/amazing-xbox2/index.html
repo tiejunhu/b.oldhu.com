@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title> 令人吃了一惊的XBOX2 &middot; OLDHU&#39;s BLOG </title>
+
+
+<link rel="stylesheet" href="http://b.oldhu.com/css/slim.css">
+<link rel="stylesheet" href="http://b.oldhu.com/css/highlight.min.css">
+<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Source+Code+Pro' rel='stylesheet' type='text/css'>
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="/favicon.ico">
+
+
+<link href="" rel="alternate" type="application/rss+xml" title="OLDHU&#39;s BLOG" />
+
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+  <h1 class="site-title"><a href="http://b.oldhu.com/">OLDHU&#39;s BLOG</a></h1>
+  <p class="site-tagline">Archive my life here</p>
+  <div class="nav">
+    <a class="nav-btn" href="#">
+      <span class="ci ci-burger"></span>
+    </a>
+    <ul class="nav-list">
+       
+	  <li class="spacer">&ac;</li>
+
+      <li><a href="https://github.com/oldhu">Github</a></li> 
+      <li><a href="https://twitter.com/archivemylife">Twitter</a></li> 
+    </ul>
+  </div>
+</div>
+    <div class="content">
+      <div class="posts">
+        <div class="post">
+          <h2 class="post-title"><a href="http://b.oldhu.com/2005/03/15/amazing-xbox2/">令人吃了一惊的XBOX2</a></h2>
+          <span class="post-date">Mar 15, 2005 </span>
+          <div class="post-content">
+            先说性能：
+<ul><li>XBOX2将会使用IBM的PowerPC系列CPU，由IBM专门为微软设计生产，基于PowerPC 970，这个CPU内有3个主频为3GHz的核，每个核在一个时钟周期都可以执行2条指令，每个拥有32KB一级指令Cache和32KB一级数据 Cache，三个核共享一个1MB的二级Cache。内建48个ALU，同时64个顶点或者像素提供64条并行线程。每个ALU 在1个周期可以完成1个矢量和1个标量操作，总计96个着色操作。浮点性能大约是72 <a href="http://en.wikipedia.org/wiki/FLOPS" title="FLOPS">GFLOPS</a>。</li><li>主板芯片组由SiS提供
+</li><li>GPU使用ATI X800的下一代GPU，频率为500MHz，支持DX9的Shader 3.0。图形芯片的峰值着色操作数目达到每秒4百80亿次。像素填充率40亿+/S，顶点生成速 率5亿/S，峰值三角形生成速率5亿/S。图形芯片内建10MB EDRAM嵌入式DRAM，720p帧缓冲。CPU和GPU共享256M内存，目前 GPU已经开发完成，虽然ATI目前没有支持SM3.0的产品，不过基于R600的这个核心预计可以支持SM3.0扩展并将包括一些专门的针对性设计。但 不可能支持SM4.X(one pass render to cube map),目前EPIC已经对MS提出疑问，认为这样的设计不能满足基于UE3.0的游戏，所以MS很可能基于UE3.0来改动XB2的设计。</li><li>内存256M(XBOX为64M)</li><li>使用双层的DVD-9光盘。每张光碟的可用存储空间为7GB，光驱速度为12X。</li><li>使用64MB到1GB的记忆卡，8MB用于系统用途，还有56MB和1016MB用于数据存储</li><li>硬盘是可选的</li><li>附带一个USB2.0摄像头，能够拍摄120万像素静态图像和VGA录像</li><li>不会采用传统的音效芯片方式，声音数据解压是通过硬件完成的，其余由软件执行。放弃了DirectSound3D，采用X3DAudio</li><li>微 软要求所有开发商开发的游戏都必须具备网络功能。多数游戏都具备高解析度图像，解析度最低为1280×720，并且采用16:9，对应5.1 环绕立体声、全屏抗锯。Xenon的游戏容许玩家自己输入音轨，支持的格式包括MP3和WMA。文件可以采用320kbps码流或者VBR立体声。该系统 名为“MusicPlayerService”</li><li>影片播放方面，Xenon采用独特的XenonMotionVideo（XMV）规格。XMV基于 WindowsMedia9，视频的画质将会达到720p，每秒30帧，对应5.1环绕立体声。</li></ul>这是个性能非常可怕的平台，是不是？
+
+有意思的是XBOX2采用了和<a href="http://www.apple.com/g5processor/">Mac G5</a>基本相同的架构，在<a href="http://www.theinquirer.net/?article=20146">即将推出的XBOX2开发平台</a>中，微软选择了Mac G5作为硬件平台，想象一下在G5上跑一个像Windows似的操作系统吧。PS3也使用了IBM的CPU，不过这个CPU是IBM和Sony一起研发的Cell，真不知IBM的这两个CPU研发部门之间是如何保密的。
+
+有了这个平台，我认为，在下一代的主机的竞争中，微软已经赢了一半。
+
+这个平台拥有相当于6个核的CPU，CPU支持Apple一直鼓吹的<a href="http://en.wikipedia.org/wiki/AltiVec">AltiVec</a>指令，如此强大的GPU，蕴藏在这一切组件中的高性能，需要一个强大的编译器才能将之充分发挥出来。而微软恰恰是这方面的高手。
+
+另外，PS2的开发之繁琐一直在游戏开发人员中意见很大，而微软的VisualStudio是这个星球上最好的IDE之一(如果还有等量级的对手的话)，微软的API设计和开发文档也有一套。XBOX2的开发框架将叫做<a href="http://www.microsoft.com/xna/">XNA</a>，我相信微软有能力让这个框架和开发环境得到游戏开发人员的认可。
+
+XBOX2年底就要推出了，想象一下上面的游戏吧。
+
+而XBOX2的野心决不止游戏机这么简单，这样一个性能强大的设备，一旦摆到了电视机前，还连上了宽带网，使用高清的电视作为显示设备，上面可以运行的应用数量将无法想象。这是微软数字家庭战略的一部分。
+
+<a href="http://www.theinquirer.net/?article=19615">XBOX2将会有三个版本</a>，XBOX NEXT, XBOX NEXT HD和XBOX NEXT PC。XBOX NEXT是一个没有硬盘的游戏机，XBOX NEXT HD加上了硬盘，这两个版本计划今年发布，XBOX NEXT PC则是一个全功能的PC，使用遥控键盘和鼠标，将于2006年秋季发布。
+
+从Microsoft TV、维纳斯计划开始，微软就没有放弃过它数字家庭的梦想。Microsoft TV/Windows CE/Windows XP Media Center Edition/XBOX/XBOX2/XBOX2 PC/Windows Media Technology，微软用所有的这些产品构建了一个包围圈，包围的中心就是每家每户的电视打开的时候都出现的是微软的Logo。
+
+参考：<a href="http://en.wikipedia.org/wiki/XBox_2">http://en.wikipedia.org/wiki/XBox_2</a>
+
+          </div>
+        </div>
+        <div class="pagination">
+          <a class="btn previous " href="http://b.oldhu.com/2005/03/15/gds-daily-usage/"> Prev</a>  
+          <a class="btn next " href="http://b.oldhu.com/2005/03/15/install-gds-on-server/"> Next</a> 
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer">
+  
+  <p>Powered by <a href="http://gohugo.io">Hugo</a>. This theme—Slim—is open sourced on <a href="https://github.com/zhe/hugo-theme-slim">Github</a>.</p>
+  
+</div>
+
+  </div>
+  <script src="http://b.oldhu.com/js/slim.js"></script>
+  <script src="http://b.oldhu.com/js/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  <script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-9830681-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+</body>
+
+</html>

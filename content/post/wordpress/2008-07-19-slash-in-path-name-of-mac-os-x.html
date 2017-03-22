@@ -1,0 +1,14 @@
+---
+date: 2008-07-19T00:00:00Z
+meta:
+  spaces_015d7b4f062484448a25cb284aad14b2_permalink: http://cid-a65130fddc997385.users.api.live.net/Users(-6462330123414047867)/Blogs('A65130FDDC997385!105')/Entries('A65130FDDC997385!1029')?authkey=v0kyaOGV0mw%24
+published: true
+status: publish
+tags:
+- Mac
+title: Slash in path name of Mac OS X
+type: post
+url: /2008/07/19/slash-in-path-name-of-mac-os-x/
+---
+
+<div id="msgcns!A65130FDDC997385!1029" class="bvMsg">Some interesting facts about slash and path name in Mac OS X:<br /><ol><li>    In Finder, you can create/rename a folder with slash in it's name.</li><li>    Internally, it stores slash as colon.</li><li>    So you can see slash is actually a colon in Terminal</li><li>    But, you cannot create a folder with colon in it's name in Finder</li></ol><br />So, when it comes to script/programming, it's more tricky. I was scripting with <a target="_blank" href="http://www.adobe.com/products/indesign/scripting/">JavaScript/InDesign</a>, the facts about this combination are:<br /><ol><li>    Read a path name with slash(which is slash in Finder, and colon in Terminal) in it, you get a string with colon</li><li>    To create a folder with slash and colon in it's path, Folder.create method will fail</li><li>    Folder.create method just does not allow colon in it's path.</li><li>    Finally I cannot figure out how to create a folder with slash(which is colon actually) in it's name.</li></ol></div>

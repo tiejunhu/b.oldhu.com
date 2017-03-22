@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title> Uploading multiple large files to a Rails application &middot; OLDHU&#39;s BLOG </title>
+
+
+<link rel="stylesheet" href="http://b.oldhu.com/css/slim.css">
+<link rel="stylesheet" href="http://b.oldhu.com/css/highlight.min.css">
+<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Source+Code+Pro' rel='stylesheet' type='text/css'>
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="/favicon.ico">
+
+
+<link href="" rel="alternate" type="application/rss+xml" title="OLDHU&#39;s BLOG" />
+
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+  <h1 class="site-title"><a href="http://b.oldhu.com/">OLDHU&#39;s BLOG</a></h1>
+  <p class="site-tagline">Archive my life here</p>
+  <div class="nav">
+    <a class="nav-btn" href="#">
+      <span class="ci ci-burger"></span>
+    </a>
+    <ul class="nav-list">
+       
+	  <li class="spacer">&ac;</li>
+
+      <li><a href="https://github.com/oldhu">Github</a></li> 
+      <li><a href="https://twitter.com/archivemylife">Twitter</a></li> 
+    </ul>
+  </div>
+</div>
+    <div class="content">
+      <div class="posts">
+        <div class="post">
+          <h2 class="post-title"><a href="http://b.oldhu.com/2009/06/09/uploading-multiple-large-files-to-a-rails-application/">Uploading multiple large files to a Rails application</a></h2>
+          <span class="post-date">Jun 9, 2009 </span>
+          <div class="post-content">
+            <div id="msgcns!A65130FDDC997385!1424" class="bvMsg"><p><strong>Abstract</strong></p>
+<p>This article solves 2 problems in Rails application development:</p>
+<ol>
+<li>Uploading multiple files into Rails app
+<li>Uploading large files into Rails app
+</ol>
+<p><strong>Backgrounds</strong></p>
+<p><em>What's the problem of uploading multiple files in Rails?</em></p>
+<p>The tricky thing is how rails convert the names of form fields into the hash variable &quot;params&quot;. Without properly naming, it will be very difficult to process uncertain number of files.</p>
+<p><em>What makes rails cannot handle uploading of large files?</em></p>
+<p>In the default rails implementation, it will read the whole file uploaded from the browser into memory, then write to disk. Which is very time consuming and inefficient. I'm not going into this as there is a very comprehensive blog on <a href="http://www.jedi.be/blog/2009/04/10/rails-and-large-large-file-uploads-looking-at-the-alternatives/" target="_blank">JEDI</a>.</p>
+<p><strong>Solutions</strong></p>
+<p>To upload multiple files into rails, Brain has a nice post <a href="http://www.practicalecommerce.com/blogs/post/432-Multiple-Attachments-in-Rails" target="_blank">here</a>. I just followed his steps with the following changes:</p>
+<ol>
+<li>Change the element name to &quot;attachment[]&quot; in the MultiSelection js function:
+<pre>this.addElement = function( element ) &#123;
+  if( element.tagName == 'INPUT' &amp;&amp; element.type == 'file' ) &#123;
+    element.parentNode.id = 'attachments_container';
+//  element.name = 'attachment[file_' + (this.id++) + ']';
+    element.name = 'attachment[]';
+......</pre>
+<li>Now we can process the attachments as array
+<pre>def process_file_uploads
+  return if params[:attachment].nil?
+  
+  params[:attachment].each do |file|
+    @attachment = Attachment.new( &#123; &quot;uploaded_data&quot; =&gt; file &#125; )
+    @picture.attachments &lt;&lt; @attachment
+  end
+end
+</pre>
+</li></ol>
+<p>By reading JEDI's blog, I decide to go to nginx + upload module. Download source code of nginx and upload module, configure nginx with command:</p>
+<pre>./configure --add-module=../upload_module_dir</pre>
+<p>then make and install it.</p>
+<p>nginx.conf as following</p>
+<pre>
+worker_processes  1;
+events &#123;
+    worker_connections  1024;
+&#125;
+http &#123;
+    include       mime.types;
+    default_type  application/octet-stream;
+    sendfile        on;
+    keepalive_timeout  65;
+
+    # back-end server
+    upstream mongrel &#123;
+      server 127.0.0.1:3000;
+    &#125;
+    server &#123;
+        listen       80;
+        server_name  localhost;
+        client_max_body_size 0; # don't limit the upload file size
+        location /documents/upload &#123; # use upload module on this URL
+          upload_pass /;
+          upload_store /tmp; # save uploaded files here
+          upload_set_form_field &quot;attachment[]name&quot; &quot;$upload_file_name&quot;;
+          upload_set_form_field &quot;attachment[]content_type&quot; &quot;$upload_content_type&quot;;
+          upload_set_form_field &quot;attachment[]path&quot; &quot;$upload_tmp_path&quot;;
+          upload_store_access user:rw group:rw all:rw;
+
+          # pass authenticity_token and all html form fields start with document to http://mongrel/documents/upload
+          upload_pass_form_field &quot;^authenticity_token$|^document.*&quot;; 
+        &#125;
+        
+        location / &#123;
+          proxy_pass http://mongrel;
+          proxy_set_header X-Real-IP $remote_addr;
+          proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+          proxy_set_header Host $http_host;
+          proxy_redirect off;
+        &#125;
+    &#125;
+&#125;
+</pre>
+<p>In the erb template:</p>
+<pre>
+&lt;% form_for @document, :url=&gt;&#123; :action =&gt; &quot;upload&quot; &#125;, :html =&gt; &#123; :multipart =&gt; true &#125; do |f| %&gt;
+  &lt;%= f.label :title %&gt;
+  &lt;%= f.text_field :title %&gt;
+  &lt;% fields_for(:attachment) do |a| %&gt;
+    &lt;%= a.label :files %&gt;
+    &lt;%= a.file_field :files %&gt;
+  &lt;% end %&gt;
+  &lt;script type=&quot;text/javascript&quot;&gt;
+    var multi_selector = new MultiSelector($('pending_files'));
+    multi_selector.addElement($('attachment_files'));
+  &lt;/script&gt;
+  &lt;%= f.submit 'Create' %&gt;
+&lt;% end %&gt;
+</pre>
+<p>As we are using form_for helper, the generated field name will have <strong>'document' prefix</strong>. So the <strong>upload_pass_form_field</strong> config in nginx.conf will pass all fields start with document to back-end. And the uploading multipart data will be processed by the nginx upload module, then create fields of <strong>attachment[]name, attachment[]content_type, attachment[]path</strong> for each file. The rails will process the request using <strong>DocumentController's upload</strong> method. The params is</p>
+<pre>
+&#123;
+  &quot;attachment&quot;=&gt;[
+    &#123;&quot;name&quot;=&gt;&quot;Firefox_by_IQEye.jpg&quot;, &quot;content_type&quot;=&gt;&quot;image/jpeg&quot;, &quot;path&quot;=&gt;&quot;/tmp/0000370374&quot;&#125;, 
+    &#123;&quot;name&quot;=&gt;&quot;f616d49511f4a9d1.jpg&quot;, &quot;content_type&quot;=&gt;&quot;image/jpeg&quot;, &quot;path&quot;=&gt;&quot;/tmp/0000493833&quot;&#125;
+  ], 
+  &quot;authenticity_token&quot;=&gt;&quot;OQayTGSPwCjStPgYrYGnob4G8S1Z53qD9olwyL8TE0k=&quot;, 
+  &quot;document&quot;=&gt;&#123;
+    &quot;author&quot;=&gt;&quot;b&quot;, 
+    &quot;title&quot;=&gt;&quot;a&quot;
+  &#125;
+&#125;  
+</pre></div>
+
+          </div>
+        </div>
+        <div class="pagination">
+          <a class="btn previous " href="http://b.oldhu.com/2009/06/10/speed-jruby-1-2-0-ruby-1-9-1-ruby-1-8-7/"> Prev</a>  
+          <a class="btn next " href="http://b.oldhu.com/2009/06/09/its-over/"> Next</a> 
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer">
+  
+  <p>Powered by <a href="http://gohugo.io">Hugo</a>. This theme—Slim—is open sourced on <a href="https://github.com/zhe/hugo-theme-slim">Github</a>.</p>
+  
+</div>
+
+  </div>
+  <script src="http://b.oldhu.com/js/slim.js"></script>
+  <script src="http://b.oldhu.com/js/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  <script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-9830681-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+</body>
+
+</html>

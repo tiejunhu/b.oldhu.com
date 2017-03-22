@@ -1,0 +1,13 @@
+---
+date: 2008-09-19T00:00:00Z
+meta:
+  spaces_015d7b4f062484448a25cb284aad14b2_permalink: http://cid-a65130fddc997385.users.api.live.net/Users(-6462330123414047867)/Blogs('A65130FDDC997385!105')/Entries('A65130FDDC997385!1234')?authkey=v0kyaOGV0mw%24
+published: true
+status: publish
+tags: []
+title: Sort flickr's photostream
+type: post
+url: /2008/09/19/sort-flickrs-photostream/
+---
+
+<div id="msgcns!A65130FDDC997385!1234" class="bvMsg">Flickr's photostream is sorted by post date. Which bothers me much as I'd like to see my photostream sorted by taken date.<br /><br />But flickr doesn't provide this option. So the only way to sort the photostream is setting the post date to taken date.<a href="http://flickrj.sourceforge.net/"><br /><br />flickrj</a> is a nice java flickr api. but it really costs me some time to understand how flickr's authentication process works. Below are the points:<br /><br />1. create a Flickr object<br />2. create a FileAuthStore<br />3. check if there's any token in the FileAuthStore that you want to use.<br />4. If there is not:<br /> 4.1 create a Frob throw AuthInterface of Flickr<br /> 4.2 create a URL using frob<br /> 4.3 access the URL in your explorer to authorize this API key to access your photos with given permission<br /> 4.4 get token from the frob<br /> 4.5 set token to RequestContext<br /> 4.6 store the token in FileAuthStore<br />5. Access all photos and do the update.<br /></div>

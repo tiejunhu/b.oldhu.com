@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Skype on OLDHU&#39;s BLOG</title>
+    <link>http://b.oldhu.com/tags/skype/index.xml</link>
+    <description>Recent content in Skype on OLDHU&#39;s BLOG</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="http://b.oldhu.com/tags/skype/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Skype won&#39;t start on Mac OS X</title>
+      <link>http://b.oldhu.com/2009/08/10/skype-wont-start-on-mac-osx/</link>
+      <pubDate>Mon, 10 Aug 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://b.oldhu.com/2009/08/10/skype-wont-start-on-mac-osx/</guid>
+      <description>&lt;p&gt;My skype was running. But suddenly won&#39;t start with the following message on console:&lt;/p&gt;
+&lt;pre&gt;8/10/09 11:27:48 PM	[0x0-0x5b75b7].com.skype.skype[21885]	Check 2 failed. Can&#39;t run Skype&lt;/pre&gt;
+&lt;p&gt;Delete cache/plist files won&#39;t work. You have to download and install Skype again. Remove Skype.app, download again from skype.com, drag it into Applications again, then it works again.&lt;/p&gt;
+&lt;p&gt;I googled around, if the console says &#34;Check 1 failed&#34;, you may also need to reinstall it.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

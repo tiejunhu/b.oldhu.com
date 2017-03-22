@@ -1,0 +1,13 @@
+baseURL: http://b.oldhu.com/
+disablePathToLower: true
+languageCode: en-us
+title: OLDHU's BLOG
+theme: slim
+params:
+  Subtitle: "Post.order(\"created_at DESC\").limit(10)"
+  GithubID: "oldhu"
+  TwitterID: "archivemylife"
+  AnalyticsID: "UA-9830681-1"
+  DisqusShortname: "oldhu"
+  Summary: false
+  Content: false

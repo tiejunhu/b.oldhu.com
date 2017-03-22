@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Office on OLDHU&#39;s BLOG</title>
+    <link>http://b.oldhu.com/tags/office/index.xml</link>
+    <description>Recent content in Office on OLDHU&#39;s BLOG</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="http://b.oldhu.com/tags/office/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>New Office for Mac is Coming 2010</title>
+      <link>http://b.oldhu.com/2009/08/14/new-office-for-mac-is-coming-2010/</link>
+      <pubDate>Fri, 14 Aug 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://b.oldhu.com/2009/08/14/new-office-for-mac-is-coming-2010/</guid>
+      <description>&lt;p&gt;According to Microsoft&#39;s &lt;a href=&#34;http://www.microsoft.com/presspass/press/2009/aug09/08-13macoutlookpr.mspx&#34; target=&#34;_blank&#34;&gt;press release&lt;/a&gt;, several interesting points:&lt;/p&gt;
+
+&lt;ul&gt;
+	&lt;li&gt;
+		There will be a Entourage 2008 Web Service Edition coming later this year. Entourage 2008 is using WebDAV protocol to access the Exchange server now. With the new Entourage WS edition, Microsoft gets closer to the new Snow Leopard&#39;s Mail.
+	&lt;/li&gt;
+	&lt;li&gt;There will be a Outlook instead of Entourage in the next release of Office for Mac&lt;/li&gt;
+	&lt;li&gt;There will be a new release of Office for Mac based on Cocoa, with better support of time-machine and spotlight.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

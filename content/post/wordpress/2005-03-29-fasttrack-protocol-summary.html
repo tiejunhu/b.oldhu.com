@@ -1,0 +1,24 @@
+---
+date: 2005-03-29T00:00:00Z
+meta: {}
+published: true
+status: publish
+tags: []
+title: FastTrack协议简述
+type: post
+url: /2005/03/29/fasttrack-protocol-summary/
+---
+
+<a href="http://en.wikipedia.org/wiki/FastTrack">FastTrack协议</a>
+
+FastTrack是Kazaa、Grokster、iMesh和Morpheus等P2P软件中使用的协议，这个协议在2003年早期非常流行。
+
+FastTrack和Kazaa是Scandinavians、Niklas Zennstrom和Janus Friis设计的，2001年3月，在一家荷兰公司Consumer Empowerment的产品中最先使用。那时候正是第一代P2P网络的末期，同年7月，Napster关闭了。
+
+2004年时，有三个基于FastTrack的网络存在，它们使用互相不兼容版本的协议。这三个网络中最有名的客户端分别是Kazaa、Grokster和iMesh。
+
+FastTrack被称为第二代P2P协议，它基于Gnutella协议，并扩展加入了supernode，以改进可扩展性。supernode的功能内 置于客户端中，如果一个客户端计算机性能足够，而且网络连接速度快，那它就自动成为supernode。supernode为那些速度较慢的节点提供索引 服务。
+
+一开始的时候，客户端中保存了一个supernode的IP地址的列表，它会试图连接这些IP直至找到一个活动的supernode，它会向这个 supernode索取当前活动的supernode的列表，并更新自己保存的列表。客户端把自己共享的文件列表告诉supernode，也从 supernode检索自己想要的文件，一旦检索到文件，就会直接与文件的所有者连接，并通过HTTP协议进行下载。
+
+这个大致结构与skype的很像。

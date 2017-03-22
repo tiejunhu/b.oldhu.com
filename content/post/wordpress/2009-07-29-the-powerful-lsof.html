@@ -1,0 +1,31 @@
+---
+date: 2009-07-29T00:00:00Z
+meta: {}
+published: true
+status: publish
+tags:
+- Mac
+- osx
+title: The Powerful lsof
+type: post
+url: /2009/07/29/the-powerful-lsof/
+---
+
+<p><strong>lsof</strong> can list all open files in osx. As directories, sockets are all also files in unix. lsof can also be used to find open ports/sockets/directories:</p>
+
+<ul>
+	<li>To list all open TCP sockets with port numbers:
+		<pre>sudo lsof -i -P</pre>
+	</li>
+	<li>To find processes open a folder or any file in that folder
+		<pre>sudo lsof +D /the/foler</pre>
+	</li>
+	<li>To find process open any file on a dev
+		<pre>sudo lsof /dev/disk0s2</pre>
+	</li>
+	<li>To print all found process id only
+		<pre>sudo lsof -t &lt;other commands&gt;</pre>
+	</li>
+</ul>
+
+<p>Details can be looked up in <a href="http://developer.apple.com/documentation/Darwin/Reference/Manpages/man8/lsof.8.html">the man page.</a></p>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title> A bookmark for creating a new wiki page &middot; OLDHU&#39;s BLOG </title>
+
+
+<link rel="stylesheet" href="http://b.oldhu.com/css/slim.css">
+<link rel="stylesheet" href="http://b.oldhu.com/css/highlight.min.css">
+<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Source+Code+Pro' rel='stylesheet' type='text/css'>
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="/favicon.ico">
+
+
+<link href="" rel="alternate" type="application/rss+xml" title="OLDHU&#39;s BLOG" />
+
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+  <h1 class="site-title"><a href="http://b.oldhu.com/">OLDHU&#39;s BLOG</a></h1>
+  <p class="site-tagline">Archive my life here</p>
+  <div class="nav">
+    <a class="nav-btn" href="#">
+      <span class="ci ci-burger"></span>
+    </a>
+    <ul class="nav-list">
+       
+	  <li class="spacer">&ac;</li>
+
+      <li><a href="https://github.com/oldhu">Github</a></li> 
+      <li><a href="https://twitter.com/archivemylife">Twitter</a></li> 
+    </ul>
+  </div>
+</div>
+    <div class="content">
+      <div class="posts">
+        <div class="post">
+          <h2 class="post-title"><a href="http://b.oldhu.com/2008/12/25/a-bookmark-for-creating-a-new-wiki-page/">A bookmark for creating a new wiki page</a></h2>
+          <span class="post-date">Dec 25, 2008 </span>
+          <div class="post-content">
+            <div id="msgcns!A65130FDDC997385!1351" class="bvMsg"><p>I use moinmoin as my local wiki engine. It is excellent for personal use because it needs no http server and database. A python installation is enough. <p>To create a new wiki page in moinmoin, you need to first edit an existing page to include a link to the new page, then click the link to create it. To make this quicker, I created the following script. All you need to do is creating a bookmark to point to the following URL, then edit the bookmark to match your hostname/port, and…go. <blockquote> <p>javascript:(function()&#123;pageName=prompt(&quot;Please input page name&quot;);if(pageName.length&gt;0)&#123;window.open('<a href="http://localhost:8080/'">http://localhost:8080/'</a> + pageName);&#125;&#125;)()</blockquote>  </div>
+
+          </div>
+        </div>
+        <div class="pagination">
+          <a class="btn previous " href="http://b.oldhu.com/2008/12/27/2008/"> Prev</a>  
+          <a class="btn next " href="http://b.oldhu.com/2008/12/25/self-sign-an-iphone-app-to-debug-it-on-device/"> Next</a> 
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer">
+  
+  <p>Powered by <a href="http://gohugo.io">Hugo</a>. This theme—Slim—is open sourced on <a href="https://github.com/zhe/hugo-theme-slim">Github</a>.</p>
+  
+</div>
+
+  </div>
+  <script src="http://b.oldhu.com/js/slim.js"></script>
+  <script src="http://b.oldhu.com/js/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  <script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-9830681-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+</body>
+
+</html>

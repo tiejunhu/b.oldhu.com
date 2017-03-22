@@ -1,0 +1,38 @@
+body {
+  position: relative;
+  padding-top: 40px;
+}
+
+.pull-right {
+  float: right;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'PT Sans Narrow',sans-serif;
+}
+
+.navbar .nav {
+    font-family: 'PT Sans Narrow',sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+body {
+    font-family: 'PT Serif',serif;
+    font-size: 15px;
+    line-height: 150%;
+}
+
+.footer {
+  border-top: 1px solid rgb(238, 238, 238);
+  margin-top: 25px;
+  padding-top: 10px;
+}
+
+.page-header {
+  padding-bottom: 5px;
+}
+
+pre {
+  margin-top: 9px;
+}

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Nodejs on OLDHU&#39;s BLOG</title>
+    <link>http://b.oldhu.com/tags/nodejs/index.xml</link>
+    <description>Recent content in Nodejs on OLDHU&#39;s BLOG</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="http://b.oldhu.com/tags/nodejs/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Increase TCP max connections on Mac OS X</title>
+      <link>http://b.oldhu.com/2012/07/19/increase-tcp-max-connections-on-mac-os-x/</link>
+      <pubDate>Thu, 19 Jul 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://b.oldhu.com/2012/07/19/increase-tcp-max-connections-on-mac-os-x/</guid>
+      <description>
+
+&lt;h2 id=&#34;reason&#34;&gt;Reason&lt;/h2&gt;
+
+&lt;p&gt;I was trying to benchmark a TCP based file server on Mac OS X. The server is running latest Node.js (0.8.2), while the client to push the server is written in &lt;a href=&#34;http://golang.org&#34;&gt;go&lt;/a&gt;. &amp;lsquo;Go&amp;rsquo; can start thousands of concurrent goroutines easily. I got error when there are hundreds of concurrent clients.&lt;/p&gt;
+
+&lt;h2 id=&#34;steps&#34;&gt;Steps&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;increate max open files
+&lt;pre&gt;
+$ sysctl -a | grep files
+kern.maxfiles = 12288
+kern.maxfilesperproc = 10240
+&lt;/pre&gt;
+kern.maxfiles and kern.maxfilesperproc were small numbers, they need to be increased:
+&lt;pre&gt;
+$ sudo sysctl -w kern.maxfiles=12288
+$ sudo sysctl -w kern.maxfilesperproc=10240
+&lt;/pre&gt;
+after this, you can increase your account&amp;rsquo;s limit by ulimit -n:
+&lt;pre&gt;
+$ ulimit -n 10240
+&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;increate max sockets
+&lt;pre&gt;
+$ sysctl -a | grep somax
+kern.ipc.somaxconn: 2048
+&lt;/pre&gt;
+It was a small number and need to be increased:
+&lt;pre&gt;
+$ sudo sysctl -w kern.ipc.somaxconn=2048
+&lt;/pre&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://rolande.wordpress.com/2010/12/30/performance-tuning-the-network-stack-on-mac-osx-10-6/&#34;&gt;Performance Tuning the Network Stack on Mac OS X « Rolande&amp;rsquo;s Ramblings&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://hints.macworld.com/article.php?story=20050901071836366&#34;&gt;A caution on modifying kern.maxfiles values &lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

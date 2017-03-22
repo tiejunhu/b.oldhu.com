@@ -1,0 +1,26 @@
+---
+date: 2009-10-16T00:00:00Z
+meta:
+  _edit_last: "17860632"
+  _searchme: "1"
+  _wpas_skip_ms: "1"
+published: true
+status: publish
+tags:
+- android
+- gfw
+- google
+title: Android绑定Google帐号方法
+type: post
+url: /2009/10/16/how-to-bind-google-account-on-android-inside-gfw/
+---
+
+需要有root
+<ul>
+	<li>adb remount</li>
+	<li>adb shell</li>
+	<li><span style="font-size:15px;color:#222222;font-family:'Courier 10 Pitch', Courier, monospace;line-height:21px;white-space:pre;">echo "74.125.113.100  android.clients.google.com
+</span><span style="font-size:15px;color:#222222;font-family:'Courier 10 Pitch', Courier, monospace;line-height:21px;white-space:pre;">74.125.113.100  android.l.google.com" &gt;&gt; /etc/hosts</span></li>
+	<li><strong>reboot</strong></li>
+	<li>now register with google</li>
+</ul>
