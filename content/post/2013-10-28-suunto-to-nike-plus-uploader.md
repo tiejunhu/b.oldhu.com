@@ -6,6 +6,7 @@ tags: []
 title: Suunto to Nike Plus Uploader
 type: post
 url: /2013/10/28/suunto-to-nike-plus-uploader/
+comments: true
 ---
 
 I used to run with nike plus system and got all my runs saved there. I also use [SmashRun](http://smashrun.com/) to analyze my runs which syncs to Nike Plus. Then I bought this great watch: Suunto Quest Running Pack. It uploads only to it's own website Movescount.com.
