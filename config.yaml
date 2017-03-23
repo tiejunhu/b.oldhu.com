@@ -6,7 +6,8 @@ theme: slim
 params:
   Subtitle: "Post.order(\"created_at DESC\").limit(10)"
   GithubID: "oldhu"
-  TwitterID: "archivemylife"
+  TwitterID: "oldhuhu"
+  LinkedInID: "oldhu"
   AnalyticsID: "UA-9830681-1"
   DisqusShortname: "oldhu"
   Summary: false

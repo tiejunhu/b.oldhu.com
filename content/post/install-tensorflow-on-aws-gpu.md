@@ -2,7 +2,6 @@
 date = "2017-03-23T13:23:09+08:00"
 title = "Install Tensorflow on AWS GPU Instance"
 draft = false
-comments: true
 +++
 The following procedure will guide you through installation of tensorflow on AWS GPU instances with 64bit Ubuntu1604
 
