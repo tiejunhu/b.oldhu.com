@@ -2,7 +2,10 @@ baseURL: http://b.oldhu.com/
 disablePathToLower: true
 languageCode: en-us
 title: OLDHU's BLOG
-theme: slim
+theme: after-dark
+enableRobotsTXT: true
+paginate: 6
+footnoteReturnLinkContents: "↩"
 params:
   Subtitle: "Post.order(\"created_at DESC\").limit(10)"
   GithubID: "oldhu"

@@ -214,8 +214,8 @@ button:active,
 }
 
 .site-title {
-  font-size: 1.5rem;
-  font-weight: 700;
+  font-size: 3rem;
+  font-weight: 500;
 }
 
 .site-title a {
@@ -291,7 +291,7 @@ button:active,
 .ci-burger {
   width: 16px;
   height: 3px;
-  top: 7px;
+  top: 20px;
   left: 0;
   background: #333;
   -webkit-transition: all 0.3s;
@@ -469,4 +469,5 @@ button:active,
 
 .post-title {
   text-transform: capitalize;
+  font-weight: 400;
 }
