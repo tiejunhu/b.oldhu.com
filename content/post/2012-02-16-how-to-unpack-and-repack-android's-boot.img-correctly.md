@@ -2,7 +2,7 @@
 date: 2012-02-16T00:00:00Z
 published: true
 status: publish
-tags: []
+tags: ["android"]
 title: How to unpack and repack Android's boot.img correctly
 type: post
 url: /2012/02/16/how-to-unpack-and-repack-android's-boot.img-correctly/

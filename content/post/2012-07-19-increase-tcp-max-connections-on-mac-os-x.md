@@ -8,7 +8,7 @@ tags:
 - Mac
 - osx
 - tcp
-- network]
+- network
 title: Increase TCP max connections on Mac OS X
 type: post
 url: /2012/07/19/increase-tcp-max-connections-on-mac-os-x/

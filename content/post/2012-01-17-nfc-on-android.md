@@ -2,7 +2,7 @@
 date: 2012-01-17T00:00:00Z
 published: true
 status: publish
-tags: []
+tags: ["nfc", "android"]
 title: NFC on Android
 type: post
 url: /2012/01/17/nfc-on-android/

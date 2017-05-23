@@ -2,7 +2,7 @@ baseURL: http://b.oldhu.com/
 disablePathToLower: true
 languageCode: en-us
 title: OLDHU's BLOG
-theme: after-dark
+theme: slim
 enableRobotsTXT: true
 paginate: 6
 footnoteReturnLinkContents: "↩"
