@@ -2,16 +2,24 @@ baseURL: //b.oldhu.com/
 disablePathToLower: true
 languageCode: en-us
 title: OLDHU's BLOG
-theme: slim
+theme: hyde
 enableRobotsTXT: true
-paginate: 6
+hasCJKLanguage: true     # has chinese/japanese/korean ? # 自动检测是否包含 中文\日文\韩文
+paginate: 3              # Number of articles displayed on the homepage  # 首页每页显示的文章数
+rssLimit: 20             # Limit Entry Count to Rss file # 限制 Rss 文章输出数量
 footnoteReturnLinkContents: "↩"
 params:
-  Subtitle: "Post.order(\"created_at DESC\").limit(10)"
-  GithubID: "oldhu"
+  themeColor: "theme-base-08"
+  layoutReverse: true
+  description: "Post.order(\"created_at DESC\")"
+  GithubID: "tiejunhu"
   TwitterID: "oldhuhu"
   LinkedInID: "oldhu"
   AnalyticsID: "UA-9830681-1"
-  DisqusShortname: "oldhu"
+  disqusShortname: "oldhu"
   Summary: false
   Content: false
+Menus:
+  main:
+    - Name: "Github"
+      URL: "https://github.com/tiejunhu/"
