@@ -8,6 +8,7 @@ hasCJKLanguage: true     # has chinese/japanese/korean ? # 自动检测是否包
 paginate: 3              # Number of articles displayed on the homepage  # 首页每页显示的文章数
 rssLimit: 20             # Limit Entry Count to Rss file # 限制 Rss 文章输出数量
 footnoteReturnLinkContents: "↩"
+disqusShortname: "oldhu"
 params:
   themeColor: "theme-base-08"
   layoutReverse: true
@@ -16,7 +17,6 @@ params:
   TwitterID: "oldhuhu"
   LinkedInID: "oldhu"
   AnalyticsID: "UA-9830681-1"
-  disqusShortname: "oldhu"
   Summary: false
   Content: false
 Menus:
