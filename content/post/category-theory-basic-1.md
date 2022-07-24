@@ -2,13 +2,11 @@
 categories = ["programming"]
 date = "2022-07-20T12:18:31+08:00"
 draft = false
-title = "范畴论基础(1)"
+title = "范畴论基础(1) - 范畴论是什么"
 toc = false
 +++
 
-## 范畴论(Category Theory)是什么
-
-范畴论是数学的一个分支。研究的不是对象(数值)，而是对象与对象之间的关系。
+范畴论(Category Theory)是数学的一个分支。研究的不是对象(数值)，而是对象与对象之间的关系。
 
 范畴论的产生可能与人脑本身的结构有关。人脑在解决复杂问题的时候，要将大的问题分解成多个小的问题，
 分别解决小的问题，再组合起来。这叫做 *compose* 。论文 `The Magical Number Seven, Plus or Minus Two` 指出，

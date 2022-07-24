@@ -2,11 +2,9 @@
 categories = ["programming"]
 date = "2022-07-24T16:56:12+08:00"
 draft = false
-title = "范畴论基础(2)"
+title = "范畴论基础(2) - 函数式编程基本概念"
 toc = false
 +++
-
-## 函数式编程中的基本概念
 
 ### 函数签名
 `f :: A -> B` 表示一个函数`f`，输入类型`A`，返回类型`B`
