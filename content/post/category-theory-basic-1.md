@@ -19,8 +19,8 @@ toc = false
 ### Category是什么
 
 *Category* 中包含两个类别的内容：*object* 和 *morphism*。
-* *object* 是 *category* 中的点
-* 一个点向另一个点的变换，称为 *morphism* (态射)
+ * *object* 是 *category* 中的点
+ * 一个点向另一个点的变换，称为 *morphism* (态射)
 
 
 *Category* 必须满足以下3点要求(才能被称为一个 *Category* )：
