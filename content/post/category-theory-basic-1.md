@@ -6,7 +6,7 @@ title = "范畴论基础(1)"
 toc = false
 +++
 
-## 1. 范畴论(Category Theory)是什么
+## 范畴论(Category Theory)是什么
 
 范畴论是数学的一个分支。研究的不是对象(数值)，而是对象与对象之间的关系。
 
