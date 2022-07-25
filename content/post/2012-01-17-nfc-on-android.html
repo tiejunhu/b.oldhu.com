@@ -8,26 +8,29 @@ type: post
 url: /2012/01/17/nfc-on-android/
 ---
 
-What's NFC
-----------
-* NFC is a set of short-range wireless technologies, typically requiring a distance of 4 cm or less. 
-* NFC operates at 13.56 MHz on ISO/IEC 18000-3 air interface and at rates ranging from 106 kbit/s to 424 kbit/s.
-* NFC always involves an initiator and a target; the initiator actively generates an RF field that can power a passive target.
-* NFC peer-to-peer communication is possible, provided both devices are powered.
-* There is no link level encryption built into NFC
+<h3>What's NFC</h3>
+
+<ul>
+    <li>NFC is a set of short-range wireless technologies, typically requiring a distance of 4 cm or less.</li>
+    <li>NFC operates at 13.56 MHz on ISO/IEC 18000-3 air interface and at rates ranging from 106 kbit/s to 424 kbit/s.</li>
+    <li>NFC always involves an initiator and a target; the initiator actively generates an RF field that can power a passive target.</li>
+    <li>NFC peer-to-peer communication is possible, provided both devices are powered.</li>
+    <li>There is no link level encryption built into NFC</li>
+</ul>
 
 
-On Android
-----------
-* NFC allows you to share small payloads of data between an NFC tag and an Android-powered device, or between two Android-powered devices.
-* Android framework APIs are based around a NFC Forum standard called **NDEF** (NFC Data Exchange Format).
-* On Android NFC is off when the screen is off (no butt sniffing)
-* No API support for card emulation
+<h3>On Android</h3>
 
-Supported Tag Technology
-------------------------
+<ul>
+    <li>NFC allows you to share small payloads of data between an NFC tag and an Android-powered device, or between two Android-powered devices. </li>
+    <li>Android framework APIs are based around a NFC Forum standard called **NDEF** (NFC Data Exchange Format).</li>
+    <li>On Android NFC is off when the screen is off (no butt sniffing)</li>
+    <li>No API support for card emulation</li>
+</ul>
 
-It is **mandatory** for all Android NFC devices to support the following tags:
+<h3>Supported Tag Technology</h3>
+
+It is <b>mandatory</b> for all Android NFC devices to support the following tags:
 <table>
 <tr><th>Class</th><th>Description</th></tr>
 <tr><td>NfcA</td><td>Provides access to NFC-A (ISO 14443-3A) properties and I/O operations.</td></tr>
@@ -47,4 +50,4 @@ The following tag technologies are optionally supported:
 
 Relationships between buzz words:
 
-![](/images/android-nfc-beyond-ndef.png "Relationships between buzz words")
+<img src="/images/android-nfc-beyond-ndef.png" alt="Relationships between buzz words">
