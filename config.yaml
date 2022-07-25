@@ -1,7 +1,7 @@
 baseURL: //b.oldhu.com/
 disablePathToLower: true
 languageCode: en-us
-title: OLDHU's BLOG
+title: OLDHU's
 theme: hyde
 enableRobotsTXT: true
 hasCJKLanguage: true     # has chinese/japanese/korean ? # 自动检测是否包含 中文\日文\韩文
