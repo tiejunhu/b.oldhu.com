@@ -7,6 +7,7 @@ toc = false
 +++
 
 ### JavaScript中的map方法(本质上)是什么？
+
 ```typescript
 const array1 = [1, 2, 3]
 const array2 = array1.map(i => i + 1)
@@ -86,6 +87,11 @@ const ret3 = arrayAdd1Multiple2(arr);
 map(console.log, ret3); // 4 6 8
 ```
 
+### map在Functor的定义下是什么
+
+回到最开始的问题，map到底是什么？在Functor的定义下(如果我们将Category看成编程里的类型)，map方法本质上是一个在Category(类型)之间转换函数的函数。
+
+两个类型A与B之间的map，可以将类型A中的函数`f`和`g`，变换为类型B中的函数`f' = map(f)`和`g' = map(g)`。同时如果`f`和`g`可以compose，那`f'`和`g'`也可以compose，并且 $ map(f \circ g) = f' \circ g' $
 
 
 
