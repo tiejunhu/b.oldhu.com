@@ -23,11 +23,14 @@ const val2 = [1, 2, 3].flatMap(i => [i, i]);
 
 这就是上面例子中的`val1`，容器套容器
 
-所以flatMap如果写出其方法签名，应该是：
+从flatMap这个方法的名字可以看出，其实是先map，然后flat。如果写出其方法签名，应该是：
 
 `flatMap :: (A -> T[B]) -> T[A] -> T[B]`
 
-从flatMap这个方法的名字也可以看出，其实是先map，然后flat
+并可以进一步简化成：
+
+`flatMap :: (A -> R) -> T[A] -> R`
+
 
 ### 自己定义一个Option类型
 没有flatMap的时候，Option类型定义如下：
@@ -119,6 +122,7 @@ function splitAndCount(str: String) {
 class SomeClass<T> {
   // ......
   // flatMap的定义很简单，只需要将func返回的结果直接返回(不再包一个SomeClass的容器)
+  // (参考前面flatMap的函数类型定义)
   public flatMap<R>(func: (v: T) => R): R {
     return func(this._value);
   }
