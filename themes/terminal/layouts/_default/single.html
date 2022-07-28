@@ -45,6 +45,16 @@
     {{- end -}}
   </div>
 
+{{ if isset .Params "series" }}
+{{ $related := where .Site.RegularPages ".Params.series" "eq" .Params.series }}
+	<h3>Posts in this series ({{ .Params.series }})</h3>
+	<ul>
+	  {{ range sort $related "Date" "asc" }}
+	      <li><a href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a></li>
+	  {{ end }}
+	</ul>
+{{ end }}
+
   {{ if eq .Type $.Site.Params.contentTypeName }}
   {{ partial "posts_pagination.html" . }}
   {{ end }}

@@ -33,3 +33,7 @@ languages:
     olderPosts: "Older posts"
     missingContentMessage: "Page not found..."
     missingBackButtonLabel: "Back to home page"
+taxonomies:
+    category: "categories"
+    series: "series"
+    tag: "tags"
