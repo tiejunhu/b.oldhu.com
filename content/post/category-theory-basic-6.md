@@ -1,7 +1,7 @@
 +++
 tags = ["fp"]
 series = "category-theory-basic"
-date = "2022-07-28T14:47:12+08:00"
+date = "2022-07-28T12:47:12+08:00"
 draft = false
 title = "范畴论基础(6) - Applicative Functor"
 toc = false
