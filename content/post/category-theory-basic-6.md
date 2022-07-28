@@ -36,12 +36,12 @@ function getRuleByAge(age: number) {
 如果要将这个`Option`中的方法，应用到`Option<number>`上，那就又要双层嵌套if :
 
 ```typescript
-function calcCommission(age: number, income: Option<number>) {
-  const ruleFunc = getCommissionRuleByAge(age);
+function calc(age: number, income: Option<number>) {
+  const ruleFunc = getRuleByAge(age);
   if (ruleFunc.isSome()) {
     if (income.isSome()) {
-      const commission = ruleFunc.value(income.value);
-      console.log(commission);
+      const result = ruleFunc.value(income.value);
+      console.log(result);
     } else {
       console.log("not valid income")
     }
@@ -67,9 +67,9 @@ function ap<T1, T2>(func: Option<(v: T1) => T2>, v: Option<T1>): Option<T2> {
 有了这个方法，就可以将上面的嵌套if写成这样：
 
 ```typescript
-function calcCommissionWithAp(age: number, income: Option<number>) {
+function calcWithAp(age: number, income: Option<number>) {
   ap(
-    getCommissionRuleByAge(age), // Option包装的函数
+    getRuleByAge(age), // Option包装的函数
     income // Option包装的Number
   ).flatMap((v) => {
     console.log(v)
