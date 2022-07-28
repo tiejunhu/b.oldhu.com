@@ -16,6 +16,8 @@ params:
   LinkedInID: "oldhu"
   AnalyticsID: "UA-9830681-1"
   centerTheme: true
+  mathjax: true
+  tags: true
   logo:
     logoText: "OLDHU's"
 languages:

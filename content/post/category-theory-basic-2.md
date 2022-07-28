@@ -1,5 +1,5 @@
 +++
-categories = ["programming"]
+tags = ["fp"]
 date = "2022-07-24T16:56:12+08:00"
 draft = false
 title = "范畴论基础(2) - 函数式编程基本概念"

@@ -1,5 +1,5 @@
 +++
-categories = ["programming"]
+tags = ["fp"]
 date = "2022-07-24T21:46:12+08:00"
 draft = false
 title = "范畴论基础(3) - Functor"

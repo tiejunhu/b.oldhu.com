@@ -1,5 +1,5 @@
 +++
-categories = ["programming"]
+tags = ["fp"]
 date = "2022-07-25T22:30:12+08:00"
 draft = false
 title = "范畴论基础(4) - Monad"

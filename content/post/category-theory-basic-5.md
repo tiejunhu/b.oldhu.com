@@ -1,5 +1,5 @@
 +++
-categories = ["programming"]
+tags = ["fp"]
 date = "2022-07-27T23:18:12+08:00"
 draft = false
 title = "范畴论基础(5) - Functor与Monad小结"
