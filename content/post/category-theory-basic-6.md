@@ -31,7 +31,7 @@ function getRuleByAge(age: number) {
 }
 ```
 
-这个`getRuleByAge`的类型定义是：`number -> Option<number -> number>`。这里相当于返回了一个包在`Option`中的方法。
+这个`getRuleByAge`的类型定义是：`number -> Option[number -> number]`。这里相当于返回了一个包在`Option`中的方法。
 
 如果要将这个`Option`中的方法，应用到`Option<number>`上，那就又要双层嵌套if :
 
@@ -77,6 +77,4 @@ function calcWithAp(age: number, income: Option<number>) {
 }
 ```
 
-由于Option支持了ap这个函数，这时候，我们就说Option是
-
-### Applicative Functor
+由于Option支持了ap这个函数，这时候，我们就说Option是 **Applicative Functor**
