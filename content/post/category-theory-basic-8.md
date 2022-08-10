@@ -154,7 +154,8 @@ asks f = do
 
 ```haskell
 selectUserToGreet user1 user2 = do
-  -- selectFirst 本身是一个 Config -> Bool 的方法，调用 asks 后，成为了一个 Reader Config Bool 的 Monad
+  -- selectFirst 本身是一个 Config -> Bool 的方法，
+  -- 调用 asks 后，成为了一个 Reader Config Bool 的 Monad
   -- 用 <- 可以将 bool 读出来
   select <- asks selectFirst
   if select
