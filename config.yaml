@@ -24,7 +24,7 @@ languages:
   en:
     languageName: "English"
     title: "OLDHU's"
-    subtitle: "A simple, retro theme for Hugo"
+    subtitle: "oldhu's blog"
     copyright: "© 2022 oldhu"
     menuMore: "Show more"
     readMore: "Read more"
