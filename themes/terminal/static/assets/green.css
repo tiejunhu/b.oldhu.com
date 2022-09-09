@@ -17,8 +17,8 @@ body {
     background-color: #1f222a;
     color: #fff;
     color: var(--color);
-    font-family: Fira Code, Monaco, Consolas, Ubuntu Mono, monospace;
-    font-size: 1rem;
+    font-family: Georgia, "Nimbus Roman No9 L", "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", "Source Han Serif CN", STSong, "AR PL New Sung", "AR PL SungtiL GB", NSimSun, SimSun, "TW\-Sung", "WenQuanYi Bitmap Song", "AR PL UMing CN", "AR PL UMing HK", "AR PL UMing TW", "AR PL UMing TW MBE", PMingLiU, MingLiU, serif;
+    font-size: 1.1rem;
     font-variant-ligatures: contextual;
     letter-spacing: -.02em;
     line-height: 1.54;
@@ -1012,6 +1012,7 @@ pre[class*=language-] {
 }
 
 .code-toolbar {
+    font-family: Fira Code, Monaco, Consolas, Ubuntu Mono, monospace !important;
     border: 1px solid hsla(0, 0%, 100%, .1);
     margin: 40px 0;
     margin: var(--code-margin) 0;

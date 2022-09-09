@@ -5,24 +5,24 @@ date = "2022-09-05T12:54:10+08:00"
 title = "范畴论基础(10) - Kleisli Arrow"
 +++
 
-一个返回容器类的函数，签名是 `f :: a -> m b`，这里的类型m，如果是个Monad，那这个函数可以被称为monadic function。
+一个返回容器类的函数，签名是 `f :: a -> m b`，这里的类型 `m`，如果是个 `Monad`，那这个函数可以被称为 `monadic function`。
 
-如果再来一个monadic function，签名是 `g :: b -> m c`，这时候如果想要将f和g组合到一起，怎么办？
+如果再来一个 `monadic function`，签名是 `g :: b -> m c`，这时候如果想要将 `f` 和 `g` 组合到一起，怎么办？
 
-如果m已经是个monad，那可以直接使用 kleisli arrow。定义如下：
+如果 `m` 已经是个 `monad`，那可以直接使用 `kleisli arrow`。定义如下：
 
 ```haskell
 <=< :: (b -> m c) -> (a -> m b) -> (a -> m c) 
 >=> :: (a -> m b) -> (b -> m c) -> (a -> m c)
 ```
 
-可以看到 `<=<` 的含义更接近 $ \circ $，对于上面的f和g，要写作 `g <=< f`
+可以看到 `<=<` 的含义更接近 $ \circ $，对于上面的 `f` 和 `g`，要写作 `g <=< f`
 
 `>=>` 的含义更接近数据的流动，上面的两个函数“组合”可以写为 `f >=> g`
 
-`<=<` 和 `>=>` 因为长的比较象鱼，所以一般会叫 fish operator
+`<=<` 和 `>=>` 因为长的比较象鱼，所以一般会叫 `fish operator`
 
-回到之前的monad的例子，可以用fish operator对monadic function进行组合
+回到之前的 `monad` 的例子，可以用 `fish operator` 对 `monadic function` 进行组合
 
 ```haskell
 monadTest =
