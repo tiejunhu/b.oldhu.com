@@ -1,4 +1,5 @@
 +++
+series = "category-theory-basic"
 draft = false
 toc = false
 date = "2022-09-05T12:54:10+08:00"
