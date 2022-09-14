@@ -102,7 +102,7 @@ Re-frame将整个的数据流处理分为6个步骤：
 
 re-frame内置了`:db`和`:dispatch`两个effect handler，分别用于更新全局状态(db)和发送新的事件(event)。这样，event handler的执行，就不需要去修改外部状态，而是返回一个数据。返回的数据再由框架层通过effect handler去修改外部状态。
 
-### coeffects handler
+### coeffect handler
 
 effect handler架构解决了修改外部世界的副作用问题。读取外部世界的副作用，在re-frame中定义为coeffect，用类似的架构处理。
 
