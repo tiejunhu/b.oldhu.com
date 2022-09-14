@@ -72,6 +72,13 @@
   <link href="{{ .RelPermalink }}" rel="alternate" type="application/json" title="{{ $.Site.Title }}" />
 {{ end }}
 
+<script src="https://cdn.bootcdn.net/ajax/libs/pangu/4.0.7/pangu.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    pangu.autoSpacingPage();
+});
+</script>
+
 <!-- mathjax -->
 {{ if isset $.Site.Params "mathjax" }}
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-svg.js"></script>

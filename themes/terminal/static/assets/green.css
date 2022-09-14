@@ -1062,5 +1062,9 @@ pre[class*=language-] {
     --border-color: hsla(0, 0%, 100%, 0.1)
 }
 
+.goat {
+    font-size: 14px;
+}
+
 @custom-media --phone (max-width: 684px);
 @custom-media --tablet (max-width: 900px)
