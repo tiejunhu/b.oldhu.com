@@ -18,5 +18,16 @@
   <script src="{{ "assets/languageSelector.js" | absURL }}"></script>
 {{ end }}
 
+{{ if not .Site.IsServer }}
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-9830681-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-9830681-1');
+</script>
+{{ end }}
+
 <!-- Extended footer section-->
 {{ partial "extended_footer.html" . }}
