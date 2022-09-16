@@ -1,14 +1,29 @@
 baseURL: "https://b.oldhu.com/"
 disablePathToLower: true
 languageCode: en-us
-title: OLDHU's
-theme: terminal
+title: oldhu's blog
+theme: ink
 enableRobotsTXT: true
-hasCJKLanguage: true     # has chinese/japanese/korean ? # 自动检测是否包含 中文\日文\韩文
-paginate: 5              # Number of articles displayed on the homepage  # 首页每页显示的文章数
+hasCJKLanguage: true    
+paginate: 5            
 disqusShortname: "oldhu"
+
+pygmentsstyle: "emacs"
+pygmentscodefences: true
+pygmentscodefencesguesssyntax: true
+
 params:
-  themeColor: "green"
+  avatar: https://s.gravatar.com/avatar/bf653b87588f6bf74e65ee574dc65eab?s=256
+  mode: auto
+  social:
+    -
+      name: "Github"
+      icon: "github"
+      url: "https://github.com/tiejunhu"
+    -
+      name: "RSS"
+      icon: "rss"
+      url: /index.xml
   contentTypeName: "content/post"
   description: "Post.order(\"created_at DESC\")"
   GithubID: "tiejunhu"
@@ -18,21 +33,6 @@ params:
   centerTheme: true
   mathjax: true
   tags: true
-  logo:
-    logoText: "OLDHU's"
-languages:
-  en:
-    languageName: "English"
-    title: "OLDHU's"
-    subtitle: "oldhu's blog"
-    copyright: "© 2022 oldhu"
-    menuMore: "Show more"
-    readMore: "Read more"
-    readOtherPosts: "Read other posts"
-    newerPosts: "Newer posts"
-    olderPosts: "Older posts"
-    missingContentMessage: "Page not found..."
-    missingBackButtonLabel: "Back to home page"
 taxonomies:
     category: "categories"
     series: "series"
