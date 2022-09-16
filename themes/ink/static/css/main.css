@@ -154,7 +154,7 @@ code {
     font-size: .95rem;
     margin: 0 2px;
     padding: 1px 2px;
-    display: block;
+    display: inline-block;
 }
 
 .align-center {
