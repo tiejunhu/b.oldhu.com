@@ -62,10 +62,17 @@ body {
     font-size: 1.4rem
 }
 
-.headings--one-size h4,
+.headings--one-size h4 {
+    font-size: 1.2rem
+}
+
 .headings--one-size h5,
 .headings--one-size h6 {
-    font-size: 1.2rem
+    font-size: 1.1rem
+}
+
+.headings--one-size h5 {
+    margin-block-end: 20px
 }
 
 a {
@@ -1065,6 +1072,11 @@ pre[class*=language-] {
 .goat {
     font-size: 14px;
 }
+
+mjx-container [size="s"] {
+    font-size: 65% !important;
+}
+
 
 @custom-media --phone (max-width: 684px);
 @custom-media --tablet (max-width: 900px)
