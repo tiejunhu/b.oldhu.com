@@ -120,17 +120,17 @@ blockquote em {
 
 h1, h2, h3, h4, h5, h6 {
     color: #333;
-    font-weight: 500;
+    font-weight: 300;
     line-height: 1.3em;
     margin: 30px 0 20px 0;
 }
 
 h1 {
-    font-size: 2.4em;
+    font-size: 2em;
 }
 
 h2 {
-    font-size: 2rem;
+    font-size: 1.8rem;
 }
 
 h3 {
@@ -138,15 +138,15 @@ h3 {
 }
 
 h4 {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
 }
 
 h5 {
-    font-size: 1rem;
+    font-size: 1.2rem;
 }
 
 h6 {
-    font-size: .9rem;
+    font-size: 1rem;
 }
 
 code {
