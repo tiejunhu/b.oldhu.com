@@ -13,7 +13,10 @@ a {
 }
 
 a:hover {
-    border-bottom: 2px solid #3700ff;
+    border-bottom: 1px solid #3700ff;
+}
+a:active {
+    color: #3700ff;
 }
 
 html,button,input,select,textarea {
@@ -156,10 +159,10 @@ h6 {
 code {
     font-family: Fira Code, Monaco, Consolas, Ubuntu Mono, monospace !important;
     font-size: .95rem;
-    margin: 0 2px;
+    margin: 1px 2px;
     padding: 0px 6px;
     display: inline-block;
-    background-color: #eeeeee;
+    background-color: #f8f8f8;
 }
 
 .align-center {
@@ -218,7 +221,7 @@ ul {
 
 .highlight {
     background: 0 0;
-    background-color: #FAFAFA;
+    background-color: #F8F8F8;
 }
 
 .wrapper {
@@ -240,21 +243,26 @@ ul {
     float: left;
     margin: 0 20px 0 0;
 }
+
 .header .avatar img {
     width: 64px;
     height: 64px;
     overflow: hidden;
     border-radius: 100%;
 }
+
 .header .site-title {
+    font-family: 'Zilla Slab', serif;
     margin: 0;
 }
+
 .site-title a {
     color: #333;
     text-decoration: none !important;
 }
+
 .site-title a:hover {
-    border-bottom-width: 3px;
+    border-bottom-width: 0px;
 }
 
 .header .site-description {
@@ -335,19 +343,26 @@ ul {
     display: flex;
     align-items: center;
 }
+
 .post-header .meta .date {
+    font-family: 'Zilla Slab', serif;
+    background: linear-gradient(top, #fcfcfc 0%,#dad8d8 100%);
+    background: -webkit-linear-gradient(top, #fcfcfc 0%,#dad8d8 100%);
+    background: -moz-linear-gradient(top, #fcfcfc 0%, #dad8d8 100%);
+    border: 1px solid #d2d2d2;
     margin-right: 15px;
     width: 64px;
-    border-width: 2px;
-    border-style: dotted;
     text-align: center;
+    /* border-radius: 8px; */
+    padding: 5px 1px;
 }
+
 .post-header .meta .date .day {
     display: block;
     width: auto;
-    font-weight: 700;
+    font-weight: 500;
     line-height: 1em;
-    font-size: 2.7em;
+    font-size: 2.4em;
     text-align: center;
 }
 .post-header .meta .date .rest {

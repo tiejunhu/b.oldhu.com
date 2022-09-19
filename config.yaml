@@ -1,7 +1,7 @@
 baseURL: "https://b.oldhu.com/"
 disablePathToLower: true
 languageCode: en-us
-title: oldhu's blog
+title: oldhu's 
 theme: ink
 enableRobotsTXT: true
 hasCJKLanguage: true    
@@ -14,7 +14,6 @@ pygmentscodefencesguesssyntax: true
 
 params:
   avatar: https://s.gravatar.com/avatar/bf653b87588f6bf74e65ee574dc65eab?s=256
-  mode: auto
   social:
     -
       name: "Github"
