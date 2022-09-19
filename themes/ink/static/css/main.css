@@ -97,6 +97,10 @@ table th {
     color: #fff;
 }
 
+table td:nth-child(1) {
+    white-space: nowrap;
+}
+
 textarea {
     resize: vertical;
 }
@@ -153,8 +157,9 @@ code {
     font-family: Fira Code, Monaco, Consolas, Ubuntu Mono, monospace !important;
     font-size: .95rem;
     margin: 0 2px;
-    padding: 1px 2px;
+    padding: 0px 6px;
     display: inline-block;
+    background-color: #eeeeee;
 }
 
 .align-center {
