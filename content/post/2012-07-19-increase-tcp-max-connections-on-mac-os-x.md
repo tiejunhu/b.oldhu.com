@@ -21,30 +21,30 @@ I was trying to benchmark a TCP based file server on Mac OS X. The server is run
 ## Steps
 
  1. increate max open files
-  <pre>
-  $ sysctl -a | grep files
-  kern.maxfiles = 12288
-  kern.maxfilesperproc = 10240
-  </pre>
+```
+$ sysctl -a | grep files
+kern.maxfiles = 12288
+kern.maxfilesperproc = 10240
+```
   kern.maxfiles and kern.maxfilesperproc were small numbers, they need to be increased:
-  <pre>
-  $ sudo sysctl -w kern.maxfiles=12288
-  $ sudo sysctl -w kern.maxfilesperproc=10240
-  </pre>
+```
+$ sudo sysctl -w kern.maxfiles=12288
+$ sudo sysctl -w kern.maxfilesperproc=10240
+```
   after this, you can increase your account's limit by ulimit -n:
-  <pre>
-  $ ulimit -n 10240
-  </pre>
+```
+$ ulimit -n 10240
+```
  2. increate max sockets
-  <pre>
-  $ sysctl -a | grep somax
-  kern.ipc.somaxconn: 2048
-  </pre>
+```
+$ sysctl -a | grep somax
+kern.ipc.somaxconn: 2048
+```
   It was a small number and need to be increased:
-  <pre>
-  $ sudo sysctl -w kern.ipc.somaxconn=2048
-  </pre>
+```
+$ sudo sysctl -w kern.ipc.somaxconn=2048
+```
 
 ## References
-* [Performance Tuning the Network Stack on Mac OS X « Rolande's Ramblings](http://rolande.wordpress.com/2010/12/30/performance-tuning-the-network-stack-on-mac-osx-10-6/)
-* [A caution on modifying kern.maxfiles values ](http://hints.macworld.com/article.php?story=20050901071836366)
+  * [Performance Tuning the Network Stack on Mac OS X « Rolande's Ramblings](http://rolande.wordpress.com/2010/12/30/performance-tuning-the-network-stack-on-mac-osx-10-6/)
+  * [A caution on modifying kern.maxfiles values ](http://hints.macworld.com/article.php?story=20050901071836366)
