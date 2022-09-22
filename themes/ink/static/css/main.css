@@ -215,8 +215,17 @@ ul {
 .highlight pre {
     margin-bottom: 0;
     margin-top: 0;
-    padding: 20px;
+    padding: 10px;
     background-color: transparent !important;
+    counter-reset: line;
+}
+
+.highlight > pre > code > span:before {
+    content: counter(line);
+    counter-increment: line;
+    width: 3em;
+    color: #AAAAAA;
+    font-size: 0.8em;
 }
 
 .highlight {
