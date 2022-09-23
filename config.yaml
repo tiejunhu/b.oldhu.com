@@ -13,7 +13,7 @@ pygmentscodefences: true
 pygmentscodefencesguesssyntax: true
 
 params:
-  avatar: https://s.gravatar.com/avatar/bf653b87588f6bf74e65ee574dc65eab?s=256
+  avatar: /images/avatar.jpeg
   social:
     -
       name: "Github"

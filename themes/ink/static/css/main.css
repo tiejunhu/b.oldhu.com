@@ -262,6 +262,7 @@ ul {
 
 .header .site-title {
     font-family: 'Zilla Slab', serif;
+    font-size: 2em;
     margin: 0;
 }
 
@@ -275,8 +276,9 @@ ul {
 }
 
 .header .site-description {
-    display: flex;
+    /* width: 96px; */
     justify-content: space-between;
+    /* float: right; */
 }
 .header .site-description p {
     margin: 0 0 10px 0;
@@ -296,7 +298,7 @@ ul {
 .header nav li {
     display: inline-block;
     list-style: none;
-    margin: 0 30px 0 0;
+    margin: 0 10px 0 0;
 }
 .header nav.social a {
     color: #333;
