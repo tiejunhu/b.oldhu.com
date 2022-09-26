@@ -157,7 +157,7 @@ h6 {
 }
 
 code {
-    font-family: Fira Code, Monaco, Consolas, Ubuntu Mono, monospace !important;
+    font-family: Menlo, Fira Code, Monaco, Consolas, Ubuntu Mono, monospace !important;
     font-size: .95rem;
     margin: 1px 2px;
     padding: 0px 6px;
@@ -276,9 +276,7 @@ ul {
 }
 
 .header .site-description {
-    /* width: 96px; */
     justify-content: space-between;
-    /* float: right; */
 }
 .header .site-description p {
     margin: 0 0 10px 0;

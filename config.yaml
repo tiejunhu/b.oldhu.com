@@ -8,7 +8,7 @@ hasCJKLanguage: true
 paginate: 5            
 disqusShortname: "oldhu"
 
-pygmentsstyle: "emacs"
+pygmentsstyle: "vs"
 pygmentscodefences: true
 pygmentscodefencesguesssyntax: true
 
