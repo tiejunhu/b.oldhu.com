@@ -6,6 +6,10 @@ body {
     font-size: 17px;
 }
 
+p {
+    text-align: justify;
+}
+
 a {
     color: #3700ff;
     text-decoration: none;

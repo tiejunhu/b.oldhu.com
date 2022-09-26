@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded", function(){
   var toggle = document.getElementById("scheme-toggle");
 
+  if (toggle == null) return;
+
   var scheme = "light";
   var savedScheme = localStorage.getItem("scheme");
 
@@ -32,14 +34,18 @@ document.addEventListener("DOMContentLoaded", function(){
 
 function darkscheme(toggle, container) {
   localStorage.setItem("scheme", "dark");
-  toggle.innerHTML = feather.icons.sun.toSvg();
-  toggle.className = "dark";
+  if (toggle) {
+    toggle.innerHTML = feather.icons.sun.toSvg();
+    toggle.className = "dark";
+  }
   container.className = "dark";
 }
 
 function lightscheme(toggle, container) {
   localStorage.setItem("scheme", "light");
-  toggle.innerHTML = feather.icons.moon.toSvg();
-  toggle.className = "light";
+  if (toggle) {
+    toggle.innerHTML = feather.icons.moon.toSvg();
+    toggle.className = "light";
+  }
   container.className = "";
 }
