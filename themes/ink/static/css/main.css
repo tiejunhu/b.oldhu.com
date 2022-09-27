@@ -476,6 +476,10 @@ ul {
     font-size: 14px;
 }
 
+#disqus_thread {
+    margin-top: 20px;
+}
+
 mjx-container [size="s"] {
     font-size: 65% !important;
 }
