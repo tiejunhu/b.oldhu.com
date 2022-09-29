@@ -96,6 +96,16 @@ JS(ClojureScript)侧：
  id: 11364764986439348000}
 ```
 
+### JS API
+
+tauri通过JS API提供了大量在rust侧实现的功能，包括：
+
+  * `@tauri-apps/api/clipboard` 用于访问系统剪贴板
+  * `@tauri-apps/api/dialog` 用于使用系统本地化的ask，confirm，message，open，save对话框
+  * `@tauri-apps/api/fs` 用于读写本地文件
+  * `@tauri-apps/api/http` 是一个rust实现的http客户端
+  * `@tauri-apps/api/shell` 用于启动外部进程
+
 ### 其它功能
 
   * 支持系统菜单
