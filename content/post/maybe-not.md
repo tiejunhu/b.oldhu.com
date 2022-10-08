@@ -5,6 +5,7 @@ date = "2022-10-08T09:55:53+08:00"
 title = "Maybe Not (Rich Hickey) 相关"
 +++
 
+### 演讲[链接](https://www.youtube.com/watch?v=YR5WdGrpoug)
 
 ### 演讲的核心内容
 
