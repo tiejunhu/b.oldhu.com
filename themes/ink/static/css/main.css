@@ -205,11 +205,19 @@ ul.flat li {
 }
 
 ul {
-    list-style: disc inside;
+    list-style-position: inside;
+}
+
+.post ul ul {
+    margin-top: 5px;
 }
 
 .post ul li {
     margin-bottom: 10px;
+}
+
+.post ul ul li {
+    margin-bottom: 5px;
 }
 
 .post ul li p {
