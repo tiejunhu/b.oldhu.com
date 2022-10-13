@@ -212,6 +212,10 @@ ul {
     margin-top: 5px;
 }
 
+.post ul ol {
+    margin-top: 5px;
+}
+
 .post ul li {
     margin-bottom: 10px;
 }
