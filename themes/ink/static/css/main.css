@@ -501,6 +501,14 @@ mjx-container [size="s"] {
     margin-bottom: 20px;
 }
 
+.pagefind-ui__result {
+    padding: 0 !important;
+}
+
+.pagefind-ui__result-thumb {
+    display: none;
+}
+
 @media (max-width: 900px) {
     body {
         padding: 20px;
