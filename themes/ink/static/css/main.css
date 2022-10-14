@@ -260,8 +260,8 @@ ul {
 }
 
 .header {
-    margin-bottom: 20px;
-    padding-bottom: 20px;
+    display: flex;
+    align-items: center;
 }
 
 .header .avatar {
@@ -494,6 +494,11 @@ ul {
 
 mjx-container [size="s"] {
     font-size: 65% !important;
+}
+
+.site-search {
+    margin-top: 10px;
+    margin-bottom: 20px;
 }
 
 @media (max-width: 900px) {
