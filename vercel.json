@@ -1,7 +1,18 @@
 {
     "build": {
-      "env": {
-        "HUGO_VERSION": "0.101.0"
-      }
+        "env": {
+            "HUGO_VERSION": "0.101.0"
+        }
     }
-  }
+    "headers": [
+        {
+            "source": "/(.*).(ttf|otf|woff2)",
+            "headers": [
+                {
+                    "key": "Cache-Control",
+                    "value": "public, max-age=31536000, immutable"
+                }
+            ]
+        }
+    ]
+}
