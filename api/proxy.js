@@ -7,7 +7,8 @@ const proxy = createProxyMiddleware({
   changeOrigin: true,
   pathRewrite: {
     '^/notion-api': ''
-  }
+  },
+  logLevel: 'debug'
 });
 
 const corsFunc = cors({ origin: true });
