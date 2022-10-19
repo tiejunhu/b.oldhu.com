@@ -6,7 +6,7 @@ const API_NOTION = "https://api.notion.com"
 function onRequest(preq, req) {
   console.log(preq.path);
   console.log(preq.host);
-  console.log(preq.headers);
+  console.log(preq.getHeaders());
 }
 
 const proxy = createProxyMiddleware({
