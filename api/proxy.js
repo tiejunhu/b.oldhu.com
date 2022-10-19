@@ -1,4 +1,5 @@
-const request = require('request');
+const httpProxy = require('http-proxy');
+const API_NOTION = "https://api.notion.com"
 
 module.exports = (req, res) => {
   // proxy middleware options
@@ -7,21 +8,9 @@ module.exports = (req, res) => {
     return;
   }
 
-  let target = "https://api.notion.com" + req.url.substring(prefix.length);
+  let target = API_NOTION + req.url.substring(prefix.length);
 
-  var options = {
-    'method': 'GET',
-    'url': target,
-    'headers': {
-      'Notion-Version': res.headers['notion-version'],
-      'Authorization': res.headers['authorization']
-    }
-  };
+  req.url = target;
 
-  request(options, function (error, response) {
-    if (error) throw new Error(error);
-    res.writeHead(200, {"Content-Type": "application/json"});
-    res.write(response.body);
-    res.end();
-  });
+  httpProxy.web(req, res, { target: API_NOTION });
 }
