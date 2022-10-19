@@ -20,7 +20,7 @@ module.exports = (req, res) => {
   }
 
   if (req.method == 'OPTIONS') {
-    cors(req, res);
+    corsFunc(req, res);
     return;
   }
 
