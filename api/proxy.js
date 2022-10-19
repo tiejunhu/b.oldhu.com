@@ -1,4 +1,5 @@
 const { createProxyMiddleware } = require('http-proxy-middleware');
+const cors = require('cors');
 const API_NOTION = "https://api.notion.com"
 
 const proxy = createProxyMiddleware({
@@ -9,10 +10,17 @@ const proxy = createProxyMiddleware({
   }
 });
 
+const corsFunc = cors();
+
 module.exports = (req, res) => {
   // proxy middleware options
   let prefix = "/notion-api"
   if (!req.url.startsWith(prefix)) {
+    return;
+  }
+
+  if (req.method == 'OPTIONS') {
+    cors(req, res);
     return;
   }
 
