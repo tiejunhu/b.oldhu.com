@@ -4,7 +4,7 @@ const API_NOTION = "https://api.notion.com"
 
 
 function onRequest(preq, req) {
-  const headers = preq.getHeaders();
+  const headers = preq.getHeaderNames();
   headers.forEach((header) => {
     if (header.startsWith('x-')) {
       preq.removeHeader(header);
