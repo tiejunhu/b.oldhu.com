@@ -2,7 +2,6 @@ const { createProxyMiddleware } = require('http-proxy-middleware');
 const cors = require('cors');
 const API_NOTION = "https://api.notion.com"
 
-
 function onRequest(preq, req) {
   const headers = preq.getHeaderNames();
   headers.forEach((header) => {
@@ -10,7 +9,6 @@ function onRequest(preq, req) {
       preq.removeHeader(header);
     }
   })
-  console.log(preq.getHeaders());
 }
 
 const proxy = createProxyMiddleware({
