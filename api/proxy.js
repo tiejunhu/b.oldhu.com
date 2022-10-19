@@ -6,7 +6,7 @@ const proxy = createProxyMiddleware({
   target: API_NOTION,
   changeOrigin: true,
   pathRewrite: {
-    '^/notion-api': '/'
+    '^/notion-api': ''
   }
 });
 
