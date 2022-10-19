@@ -10,7 +10,7 @@ const proxy = createProxyMiddleware({
   }
 });
 
-const corsFunc = cors();
+const corsFunc = cors({ origin: true });
 
 module.exports = (req, res) => {
   // proxy middleware options
