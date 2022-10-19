@@ -1,6 +1,8 @@
 const httpProxy = require('http-proxy');
 const API_NOTION = "https://api.notion.com"
 
+const proxy = httpProxy.createProxyServer();
+
 module.exports = (req, res) => {
   // proxy middleware options
   let prefix = "/notion-api"
@@ -12,5 +14,5 @@ module.exports = (req, res) => {
 
   req.url = target;
 
-  httpProxy.web(req, res, { target: API_NOTION });
+  proxy.web(req, res, { target: API_NOTION });
 }
