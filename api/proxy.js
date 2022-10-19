@@ -4,8 +4,12 @@ const API_NOTION = "https://api.notion.com"
 
 
 function onRequest(preq, req) {
-  console.log(preq.path);
-  console.log(preq.host);
+  const headers = preq.getHeaders();
+  headers.forEach((header) => {
+    if (header.startsWith('x-')) {
+      preq.removeHeader(header);
+    }
+  })
   console.log(preq.getHeaders());
 }
 
