@@ -11,8 +11,11 @@ module.exports = (req, res) => {
   }
 
   let target = API_NOTION + req.url.substring(prefix.length);
+  console.log(target);
 
   req.url = target;
+
+  console.log(JSON.stringify(req));
 
   proxy.web(req, res, { target: API_NOTION });
 }
