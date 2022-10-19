@@ -11,6 +11,10 @@ function onRequest(preq, req) {
   })
 }
 
+function onResponse(pres) {
+  pres.headers["Access-Control-Allow-Origin"] = "*";
+}
+
 const proxy = createProxyMiddleware({
   target: API_NOTION,
   changeOrigin: true,
@@ -19,7 +23,8 @@ const proxy = createProxyMiddleware({
   },
   toProxy: true,
   logLevel: 'debug',
-  onProxyReq: onRequest
+  onProxyReq: onRequest,
+  onProxyRes: onResponse
 });
 
 const corsFunc = cors({ origin: true });
@@ -30,9 +35,10 @@ module.exports = (req, res) => {
     return;
   }
 
-  corsFunc(req, res, (rr1, rr2) => {
-    if (req.method != 'OPTIONS') {
-      proxy(rr1, rr2);
-    }
-  });
+  if (req.method == 'OPTIONS') {
+    corsFunc(req, res);
+    return;
+  }
+
+  proxy(req, res);
 }
