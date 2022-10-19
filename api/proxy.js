@@ -30,10 +30,9 @@ module.exports = (req, res) => {
     return;
   }
 
-  if (req.method == 'OPTIONS') {
-    corsFunc(req, res);
-    return;
+  if (req.method != 'OPTIONS') {
+    proxy(req, res);
   }
 
-  proxy(req, res);
+  corsFunc(req, res);
 }
