@@ -145,7 +145,7 @@ h2 {
     position: relative;
 }
 
-h2:before {
+.markdown h2:before {
     content: " ";
     position: absolute;
     width: 48px;
@@ -169,7 +169,7 @@ h3 {
     position: relative;
 }
 
-h3:before {
+.markdown h3:before {
     content: " ";
     position: absolute;
     width: 48px;
@@ -191,7 +191,7 @@ h4 {
     position: relative;
 }
 
-h4:before {
+.markdown h4:before {
     content: " ";
     position: absolute;
     width: 48px;
