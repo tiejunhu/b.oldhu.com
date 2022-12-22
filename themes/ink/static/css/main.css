@@ -76,12 +76,15 @@ table {
     margin-bottom: 1rem;
     overflow-x: auto;
     width: 100%;
+    border: 1px;
 }
 
 table th,
 table td {
-    border-bottom: 1px solid #dee2e6;
-    padding: 0.75rem;
+    border: 1px solid #dee2e6;
+    padding: 0.3rem;
+    padding-left: 0.8em;
+    padding-right: 0.8em;
     vertical-align: top;
 }
 
@@ -91,7 +94,7 @@ table thead th {
 }
 
 table tbody + tbody {
-    border-top: 2px solid #dee2e6;
+    border: 2px solid #dee2e6;
 }
 
 table tbody tr:nth-of-type(even) {
@@ -99,9 +102,9 @@ table tbody tr:nth-of-type(even) {
 }
 
 table th {
-    background-color: #212529;
+    background-color: #32383e;
     border-color: #32383e;
-    color: #fff;
+    color: #eee;
 }
 
 table td:nth-child(1) {
