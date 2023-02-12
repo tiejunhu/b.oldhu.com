@@ -75,6 +75,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab&display=swap" rel="stylesheet">
 
   {{ if not .Site.IsServer }}
+  <script defer src="/_vercel/insights/script.js"></script>
   <script type="module">
    import { getCLS, getFCP, getFID, getLCP, getTTFB } from 'https://unpkg.com/web-vitals@3?module';
    const vitalsUrl = 'https://vitals.vercel-analytics.com/v1/vitals';
