@@ -9,6 +9,7 @@ body {
     color: #333;
     line-height: 1.5em;
     font-size: 17px;
+    --pagefind-ui-font: jinkaiFont, -apple-system, "Noto Sans", "Helvetica Neue", Helvetica, "Nimbus Sans L", Arial, "Liberation Sans", "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", "Source Han Sans SC", "Source Han Sans CN", "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Zen Hei", "ST Heiti", SimHei, "WenQuanYi Zen Hei Sharp", sans-serif;
 }
 
 p {
@@ -573,6 +574,18 @@ mjx-container [size="s"] {
 
 .pagefind-ui__result-thumb {
     display: none;
+}
+
+.pagefind-ui__search-input {
+    font-weight: inherit;
+    font-size: 14px;
+    border-radius: inherit;
+    height: 48px;
+}
+
+.pagefind-ui__search-clear {
+    padding: inherit;
+    1px dotted #bebebe;
 }
 
 @media (max-width: 900px) {
