@@ -587,7 +587,18 @@ mjx-container [size="s"] {
     padding: inherit !important;
     border: 1px dotted #bebebe !important;
     height: 44px !important;
+    width: 40px;
+    border-radius: inherit !important;
 }
+
+.pagefind-ui__message {
+    padding: inherit !important;
+}
+
+.pagefind-ui__results {
+    margin-top: 0;
+}
+
 
 @media (max-width: 900px) {
     body {
