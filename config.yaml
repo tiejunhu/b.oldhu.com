@@ -32,10 +32,17 @@ params:
   centerTheme: true
   mathjax: true
   tags: true
+
+disableKinds:
+  - series
+  - tag
+  - category
+
 taxonomies:
     category: "categories"
     series: "series"
     tag: "tags"
+
 security:
   funcs:
     getenv:
