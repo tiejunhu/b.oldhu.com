@@ -585,7 +585,7 @@ mjx-container [size="s"] {
 
 .pagefind-ui__search-clear {
     padding: inherit !important;
-    1px dotted #bebebe !important;
+    border: 1px dotted #bebebe !important;
     height: 44px !important;
 }
 
