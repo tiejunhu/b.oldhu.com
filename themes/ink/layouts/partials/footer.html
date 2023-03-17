@@ -1,18 +1,19 @@
 <div class="footer wrapper">
-	<nav class="nav">
-		<div>{{ dateFormat "2006" now }} {{ with .Site.Copyright }} {{ . | safeHTML }} | {{ end }} <a href="https://github.com/knadh/hugo-ink">Ink</a> theme on <a href="https://gohugo.io">Hugo</a></div>
-	</nav>
+  <nav class="nav">
+    <img src="/images/written-by-human-not-by-ai-white.svg">
+    <div>&#169; {{ dateFormat "2006" now }} {{ with .Site.Copyright }} {{ . | safeHTML }} | {{ end }} by oldhu with modified <a href="https://github.com/knadh/hugo-ink">Ink</a> theme on <a href="https://gohugo.io">Hugo</a> and <a href="https://vercel.com">Vercel</a></div>
+  </nav>
 </div>
 
 {{ if not .Site.IsServer }}
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-39K84P7SVY"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js', new Date());
 
-  gtag('config', 'G-39K84P7SVY');
+ gtag('config', 'G-39K84P7SVY');
 </script>
 {{ end }}
 {{- with .Site.Params.Social -}}
