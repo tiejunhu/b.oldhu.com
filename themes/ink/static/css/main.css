@@ -1,15 +1,14 @@
-@font-face {
-    font-family: jinkaiFont;
-    src: url("/fonts/jinkai.ttf") format("TrueType");
+:root {
+    --font: Bahnschrift, 'DIN Alternate', 'Franklin Gothic Medium', 'Nimbus Sans Narrow', sans-serif-condensed, sans-serif;
 }
 
 body {
-    font-family: jinkaiFont, -apple-system, "Noto Sans", "Helvetica Neue", Helvetica, "Nimbus Sans L", Arial, "Liberation Sans", "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", "Source Han Sans SC", "Source Han Sans CN", "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Zen Hei", "ST Heiti", SimHei, "WenQuanYi Zen Hei Sharp", sans-serif;
-    font-weight: 400;
+    font-family: var(--font);
+    font-weight: 300;
     color: #333;
     line-height: 1.5em;
     font-size: 17px;
-    --pagefind-ui-font: jinkaiFont, -apple-system, "Noto Sans", "Helvetica Neue", Helvetica, "Nimbus Sans L", Arial, "Liberation Sans", "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", "Source Han Sans SC", "Source Han Sans CN", "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Zen Hei", "ST Heiti", SimHei, "WenQuanYi Zen Hei Sharp", sans-serif;
+    --pagefind-ui-font: var(--font);
 }
 
 p {
@@ -229,7 +228,7 @@ h6 {
 
 code {
     font-family: Menlo, Fira Code, Monaco, Consolas, Ubuntu Mono, monospace !important;
-    font-size: .95rem;
+    font-size: .9rem;
     margin: 1px 2px;
     padding: 0px 6px;
     display: inline-block;
@@ -344,7 +343,6 @@ ul {
 }
 
 .header .site-title {
-    font-family: 'Zilla Slab', serif;
     font-size: 2em;
     margin: 0;
 }
@@ -437,7 +435,6 @@ ul {
 }
 
 .post-header .meta .date {
-    font-family: 'Zilla Slab', serif;
     background: linear-gradient(top, #fcfcfc 0%,#dad8d8 100%);
     background: -webkit-linear-gradient(top, #fcfcfc 0%,#dad8d8 100%);
     background: -moz-linear-gradient(top, #fcfcfc 0%, #dad8d8 100%);
