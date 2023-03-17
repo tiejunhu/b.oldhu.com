@@ -38,12 +38,14 @@
 
         {{ if isset .Params "series" }}
         {{ $related := where .Site.RegularPages ".Params.series" "eq" .Params.series }}
+        <div data-pagefind-ignore="all">
 	<h3>系列文章 ({{ .Params.series }})</h3>
 	<ul>
 	  {{ range sort $related "Date" "asc" }}
 	  <li><a href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a></li>
 	  {{ end }}
 	</ul>
+        </div>
         {{ end }}
 
 	{{- if .Site.DisqusShortname -}}
