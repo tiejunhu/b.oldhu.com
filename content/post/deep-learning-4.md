@@ -2,7 +2,7 @@
 draft = false
 toc = false
 date = "2023-03-20T09:17:58+08:00"
-title = "Deep Learning(4) - Word Embedding"
+title = "Deep Learning (4) - Word Embedding"
 series = "deep-learning"
 +++
 
@@ -43,4 +43,5 @@ BERT并没有限制使用哪些数据作为embedding，选择不同的层的参�
 
 ### 参考
 [1] https://jalammar.github.io/illustrated-word2vec/
+
 [2] https://jalammar.github.io/illustrated-bert/
