@@ -65,7 +65,6 @@ ChatGPT是基于InstructGPT进一步优化出来的模型，脉络如下：
 ![](/images/dl/gpt-tree.png)
 
 
-
 ## 参考
 
 [1] https://mp.weixin.qq.com/s/TLQ3TdrB5gLb697AFmjEYQ
