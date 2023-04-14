@@ -11,8 +11,8 @@ Janet是一个Lisp方言，作者非常喜欢，写了一本关于Janet的书 ht
 
 ### Janet很简单
 
-这一点是所有Lisp语言的共同点，Janet只有8个内置关键字：`do, def, var, set, if, while, break, fn`(还有5个用于支持macro的关键字：
-`quote, unquote, quasiquote, splice, upscope`)，其余的都由函数和macro实现。
+这一点是所有Lisp语言的共同点，Janet只有8个内置关键字：`do`, `def`, `var`, `set`, `if`, `while`, `break`, `fn`(还有5个用于支持macro的关键字：
+`quote`, `unquote`, `quasiquote`, `splice`, `upscope`)，其余的都由函数和macro实现。
 
 ### Janet可分发
 
@@ -23,6 +23,7 @@ Janet可编译为单个可执行程序，编译的方式是将Janet代码编译�
 Janet内置了一个Parsing Expression Grammars的模块，可以写出解析单行、多行甚至二进制数据的解析器。语法非常强大。
 
 https://janet.guide/pegular-expressions/
+
 https://janet-lang.org/docs/peg.html
 
 ### Janet非常容易管理子进程
@@ -33,7 +34,9 @@ Janet可以象写普通的shell脚本一样调用外部工具
 
 ### Janet可被嵌入
 
-Janet的引擎是一个.c文件，可被其它程序轻松引入，甚至是Web Assembly https://github.com/ianthehenry/toodle.studio
+Janet的引擎是一个.c文件，可被其它程序轻松引入，甚至是Web Assembly 
+
+https://github.com/ianthehenry/toodle.studio
 
 ### Janet有不可变集合和可变集合
 
