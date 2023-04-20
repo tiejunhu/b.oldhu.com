@@ -68,8 +68,8 @@ Agent这个模式，个人认为是有问题的。hn上的争论也很多。可�
 - Jasper AI going 0 to $75m ARR in 2 years
 - [Auto-GPT](https://github.com/Significant-Gravitas/Auto-GPT)和[BabyAGI](https://github.com/yoheinakajima/babyagi)是现在两个比较受关注的Agent类项目
 - LangChain估值200m
-- 向量数据库：Pinecone (now worth $700m), Weaviate ($200m), and Chroma ($75m).
-- Text to SQL: Perplexity AI ($26m Series A), Seek AI ($7.5m Seed)
+- 向量数据库：Pinecone (now worth 700m usd), Weaviate (200m usd), and Chroma (75m usd).
+- Text to SQL: Perplexity AI (26m usd Series A), Seek AI (7.5m usd Seed)
 
 ### [Astral](https://astral.sh/)
 
