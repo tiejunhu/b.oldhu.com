@@ -9,7 +9,6 @@ title = "Transformers from Scratch"
 
 对论文[Attention Is All You Need](https://arxiv.org/abs/1706.03762)的解读。
 
-
 ### one-hot encoding
 
 中文叫独热编码或者一位有效编码，是指用一个N维向量表示N个词，每一个词对应一个向量，这个向量的一位为1，其余为0。
@@ -330,6 +329,5 @@ cross-attention是指encoder和decoder之间的连接。这个连接将encoder�
 #### Byte pair encoding
 
 解决方案是Byte pair encoding。BPE从字符开始，然后将高频的组合放入词表中，然后不断重复这个过程，一直到词表的大小达到预定的大小。
-
 
 ## 以上
