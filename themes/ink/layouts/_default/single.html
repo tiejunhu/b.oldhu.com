@@ -39,13 +39,56 @@
         {{ if isset .Params "series" }}
         {{ $related := where .Site.RegularPages ".Params.series" "eq" .Params.series }}
         <div data-pagefind-ignore="all">
-	<h3>系列文章 ({{ .Params.series }})</h3>
-	<ul>
-	  {{ range sort $related "Date" "asc" }}
-	  <li><a href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a></li>
-	  {{ end }}
-	</ul>
+	  <h3>系列文章 ({{ .Params.series }})</h3>
+	  <ul>
+	    {{ range sort $related "Date" "asc" }}
+	    <li><a href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a></li>
+	    {{ end }}
+	  </ul>
         </div>
+        {{ end }}
+
+        {{ if .Page.Store.Get "hasMermaid" }}
+        <script type="module">
+         import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.esm.min.mjs';
+         mermaid.initialize({ startOnLoad: true, theme: 'forest' });
+        </script>
+        {{ end }}
+
+        {{ if .Page.Store.Get "hasPlantUML" }}
+        <script>
+         const loadScript = (url, onloadFunction) => {
+           var newScript = document.createElement("script");
+           newScript.onerror =  (oError) => {
+             throw new URIError("The script " + oError.target.src + " didn't load correctly.");
+           };
+           if (onloadFunction) { newScript.onload = onloadFunction; }
+           document.head.insertAdjacentElement('beforeend', newScript);
+           newScript.src = url;
+         }
+
+         const loadPlantUMLOnNeed = () => {
+           let plantumlPrefix = "language-plantuml";
+
+           if (document.querySelectorAll("[class^=" + plantumlPrefix + "]").length > 0) {
+             loadScript('https://cdn.jsdelivr.net/gh/jmnote/plantuml-encoder/dist/plantuml-encoder.min.js', () => {
+               (function(){
+                 Array.prototype.forEach.call(document.querySelectorAll("[class^=" + plantumlPrefix + "]"), function(code){
+                   let image = document.createElement("IMG");
+                   image.src = 'http://www.plantuml.com/plantuml/svg/~1' + plantumlEncoder.encode(code.innerHTML);
+                   code.parentNode.insertBefore(image, code);
+                   code.style.display = 'none';
+                 });
+               })();
+             })
+           }
+         }
+
+         window.addEventListener('load', function(event) {
+           // load PlantUML
+           loadPlantUMLOnNeed();
+         })
+        </script>
         {{ end }}
 
 	{{- if .Site.DisqusShortname -}}
