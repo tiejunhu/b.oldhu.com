@@ -78,10 +78,10 @@
              loadScript('https://cdn.jsdelivr.net/gh/jmnote/plantuml-encoder/dist/plantuml-encoder.min.js', () => {
                (function(){
                  Array.prototype.forEach.call(document.querySelectorAll("[class^=" + plantumlPrefix + "]"), function(code){
+                   code.style.display = 'none';
                    let image = document.createElement("IMG");
                    image.src = 'http://www.plantuml.com/plantuml/svg/~1' + plantumlEncoder.encode(code.innerHTML);
                    code.parentNode.insertBefore(image, code);
-                   code.style.display = 'none';
                  });
                })();
              })
