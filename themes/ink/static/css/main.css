@@ -84,6 +84,10 @@ table {
     border: 1px;
 }
 
+table tr th:empty {
+    display: none;
+}
+
 table th,
 table td {
     border: 1px solid #dee2e6;
@@ -271,7 +275,7 @@ ul.flat li {
 }
 
 ul {
-    list-style-position: inside;
+    /* list-style-position: inside; */
 }
 
 .post ul ul {
@@ -308,6 +312,14 @@ ul {
     width: 3em;
     color: #AAAAAA;
     font-size: 0.8em;
+}
+
+.language-text {
+    white-space: pre-wrap;
+}
+
+.language-text > span:before {
+    display: none;
 }
 
 .highlight {
@@ -423,6 +435,10 @@ ul {
     color: #999;
     margin-bottom: 20px;
     letter-spacing: 1px;
+}
+
+.container:has(.post-page) {
+    padding-right: 120px;
 }
 
 .recent-posts .posts .post {
@@ -596,10 +612,35 @@ mjx-container [size="s"] {
     margin-top: 0;
 }
 
+.toc {
+    position: fixed;
+    right: 3em;
+    top: 3em;
+    max-width: 300px;
+    width: 300px;
+    white-space: nowrap;
+    overflow: hidden;
+    padding-left: 2px;
+}
+
+.toc li {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+@media (max-width: 1300px) {
+    .toc {
+        display: none;
+    }
+
+    .container {
+        padding-right: 0;
+    }
+}
 
 @media (max-width: 900px) {
     body {
-        padding: 20px;
+        padding:30px;
     }
 
     h1 {
@@ -619,15 +660,7 @@ mjx-container [size="s"] {
     }
 
     .container {
-        margin-top: 10px;
-    }
-
-    .header .nav.social li {
-        margin: 0;
-    }
-    .header .nav li {
-        margin: 0 10px 0 0;
-        font-size: 0.875em;
+        margin-top: 8px;
     }
 
     table {
@@ -637,17 +670,19 @@ mjx-container [size="s"] {
         overflow-x: auto;
         width: 100%;
     }
+
 }
 
-@media (max-width: 400px) {
+@media (max-width: 420px) {
     .header .nav.social {
         min-width: auto;
         margin: 0;
     }
     .header .site-description {
-        font-size: 1em;
         margin-top: 10px;
-        font-size: 0.875em;
-        line-height: 1.4em;
+    }
+
+    body {
+        font-size: 15px;
     }
 }

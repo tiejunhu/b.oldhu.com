@@ -5,7 +5,7 @@ date = "2023-05-22T14:15:50+08:00"
 title = "Open Source LLM"
 +++
 
-### 排名
+## 排名
 
 基于[lmsys arena](https://chat.lmsys.org/?arena)
 
@@ -22,7 +22,7 @@ title = "Open Source LLM"
 | 9    | dolly-v2-12b            |
 | 10   | llama-13b               |
 
-### 继承关系
+## 继承关系
 
 ```plantuml
 @startmindmap

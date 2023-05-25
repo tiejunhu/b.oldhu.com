@@ -9,7 +9,7 @@ title = "Transformers from Scratch"
 
 对论文[Attention Is All You Need](https://arxiv.org/abs/1706.03762)的解读。
 
-### one-hot encoding
+## one-hot encoding
 
 中文叫独热编码或者一位有效编码，是指用一个N维向量表示N个词，每一个词对应一个向量，这个向量的一位为1，其余为0。
 
@@ -17,7 +17,7 @@ title = "Transformers from Scratch"
 
 ![](/images/tfs/one_hot_vocabulary.png)
 
-### dot product (点乘)
+## dot product (点乘)
 
 点乘用于将两个向量相乘，即：$ \vec{p} \cdot \vec{q} $，计算方法是将两个向量对应位置的元素相乘，然后将所有结果相加。
 
@@ -25,7 +25,7 @@ title = "Transformers from Scratch"
 
 可以很容易知道，一个one-hot vector乘自己，结果不变；一个one-hot vector乘另一个one-hot vector，结果为0。
 
-### Matrix multiplication (矩阵乘法)
+## Matrix multiplication (矩阵乘法)
 
 一个 $ m \times n $ 的矩阵是指有m行n列的矩阵。
 
@@ -39,7 +39,7 @@ title = "Transformers from Scratch"
 
 从计算过程可知，两个矩阵如果要能相乘，那么第一个矩阵的列数必须等于第二个矩阵的行数。
 
-### First order sequence model (一阶序列模型)
+## First order sequence model (一阶序列模型)
 
 假设我们语料库里有三个句子：
 
@@ -63,7 +63,7 @@ title = "Transformers from Scratch"
 
 ![](/images/tfs/transition_lookups.png)
 
-### Second order sequence model (二阶序列模型)
+## Second order sequence model (二阶序列模型)
 
 假设我们语料库里有两个句子，出现概率40/60
 
@@ -82,7 +82,7 @@ title = "Transformers from Scratch"
 
 二阶序列模型的矩阵，对于每两个单词的组合，都要占用一行，所以对于一个有N个单词的词汇表，二阶序列模型的矩阵就有$ N^2 $行。
 
-### Second order sequence model with skips (带跳跃的二阶序列模型)
+## Second order sequence model with skips (带跳跃的二阶序列模型)
 
 如果需要向前看更远的距离，那前面的模型就会失效，比如如果向前看8个单词，就需要一个$ N^8 $行的矩阵，这样的矩阵太大了。
 
@@ -107,7 +107,7 @@ title = "Transformers from Scratch"
 
 使用这样一个表来预测下一个词，需要把所有的可能性加起来，比如对于`Check the program log and find out whether it ran`，对于`down`得到的数值为4，对于`please`得到的数值为5，因此我们选择`please`。
 
-### Masking(掩码)
+## Masking(掩码)
 
 在上面的例子中，4和5的区别太小了，不足以决定我们选择哪一个。可以引入mask来解决这个问题。
 
@@ -127,7 +127,7 @@ title = "Transformers from Scratch"
 
 这个mask，表达了对之前不同单词的不同关注程度，其实就是attention(注意力)的核心思想。
 
-### Attention as matrix multiplication (用矩阵乘法来表示attention)
+## Attention as matrix multiplication (用矩阵乘法来表示attention)
 
 可以用一个矩阵表示所有的mask，然后用one-hot vector去把想要的mask选择出来：
 
@@ -139,7 +139,7 @@ title = "Transformers from Scratch"
 
 其中Q为one-hot vector，K为mask矩阵，但存储的时候是以例为mask存储的，因此需要转置。T表示转置。
 
-### Second order sequence model as matrix multiplications (用矩阵乘法来表示二阶序列模型)
+## Second order sequence model as matrix multiplications (用矩阵乘法来表示二阶序列模型)
 
 下面看一下如何用矩阵乘法来生成最终的预测矩阵。
 
@@ -173,7 +173,7 @@ attention vector并不限制只能有两个1，其实也可以有多个1，这�
 
 ![](/images/tfs/architecture_feedforward-crunch.png)
 
-### Sequence completion (序列补全)
+## Sequence completion (序列补全)
 
 上面的模型只能预测一个单词，如果要预测多个单词，就需要用到序列补全。
 
@@ -185,7 +185,7 @@ attention vector并不限制只能有两个1，其实也可以有多个1，这�
 
 新的下一个单词然后被添加到序列中，在解码器底部的“输出”处替换进去，并重复这个过程。
 
-### Embeddings (嵌入)
+## Embeddings (嵌入)
 
 在上面的例子中，我们使用的是one-hot vector，但是这样的方法会导致计算量过大。比如如果我们有5万个词，那最终的预测矩阵会有5万列，25亿
 行。合计是125万亿个参数。这个计算量太大了。
@@ -202,7 +202,7 @@ attention vector并不限制只能有两个1，其实也可以有多个1，这�
 
 有很多非常好的计算好的embedding模型，当然也可以在训练中学习到embedding。
 
-### Positional encoding (位置编码)
+## Positional encoding (位置编码)
 
 之前我们只关注了单词对，并没有引入位置信息。这里使用了旋转的方式来引入位置信息：
 
@@ -214,11 +214,11 @@ attention vector并不限制只能有两个1，其实也可以有多个1，这�
 
 ![](/images/tfs/architecture_positional-crunch.png)
 
-### De-embeddings (解嵌入)
+## De-embeddings (解嵌入)
 
 embedding让计算量变小，当所有的计算都完成后，需要将其解嵌入，得到one-hot vector，从而得到最终的预测结果。
 
-### Softmax
+## Softmax
 
 softmax函数为：$ \sigma(\vec{x}\_i) = \frac{e^{x_i}}{\sum_{j=1}^{n}e^{x_j}} $
 
@@ -232,7 +232,7 @@ de-embedding和softmax在架构中的位置：
 
 ![](/images/tfs/architecture_de_embedding-crunch.png)
 
-### Multi-head attention (多头注意力)
+## Multi-head attention (多头注意力)
 
 在整个数据流程中，有以下一些重要的数据定义
 
@@ -252,7 +252,7 @@ attention的计算不改变矩阵大小，所以在de-embedding之前，数据�
 
 ![](/images/tfs/matrix_shapes-crunch.png)
 
-#### 引入多头注意力
+### 引入多头注意力
 
 在前面提到注意力的时候，提到过，有时候注意力不仅和之前的一个词相关，也可能和多个词相关。
 
@@ -271,7 +271,7 @@ attention的计算不改变矩阵大小，所以在de-embedding之前，数据�
 
 ![](/images/tfs/architecture_multihead-crunch.png)
 
-### Single head attention revisited (回顾单头注意力)
+## Single head attention revisited (回顾单头注意力)
 
 由于两次高维向低维的变换，实际学习到的注意力，不是简单的单词与单词之间的关系，而是单词组之间的关系。每一个embedding点，都代表了一组单词。
 
@@ -279,9 +279,9 @@ attention的计算不改变矩阵大小，所以在de-embedding之前，数据�
 
 中间的mask块，确保计算的时候，只计算之间的单词，而不计算后面的单词。
 
-### Add & Norm
+## Add & Norm
 
-#### Skip connection (残差连接)
+### Skip connection (残差连接)
 
 在计算注意力的时候，有一个残差连接，将输入的embedding和计算得到的注意力结果相加，这个架构类似于图像处理中的ResNet。
 
@@ -296,37 +296,37 @@ attention的计算不改变矩阵大小，所以在de-embedding之前，数据�
 
 ![](/images/tfs/skip_connection_gradients-crunch.png)
 
-#### Layer normalization (层归一化)
+### Layer normalization (层归一化)
 
 归一化没有明确的目的，通常加在一系列计算之后，将计算之后得到的值，向平均值为0，方差为1的方向进行转换。
 
 ![](/images/tfs/normalization-crunch.png)
 
-### Multiple layers (多层)
+## Multiple layers (多层)
 
 在论文中，Multi-head attention和Feed Forward的过程，是重复多次的，架构图中的N(=6)表示重复的次数。
 
 为什么需要多层，因为神经网络的训练是一个碰运气的过程，如果只有一层，只有一个最优解，那么就很难找到这个最优解，如果有多层，就有多个
 最优解，就有更多的机会找到最优解(或次优解)。
 
-### Decoder stack
+## Decoder stack
 
 整个网络架构的右半部分，是decoder。有时候，只用decoder也是非常有效的，比如OpenAI的GPT，就是decoder-only的架构。
 
-### Cross-attention
+## Cross-attention
 
 cross-attention是指encoder和decoder之间的连接。这个连接将encoder的输出作为decoder的输入，这样来保留从Input来的信息。
 
 ![](/images/tfs/architecture_cross_attention-crunch.png)
 
-### Tokenizing
+## Tokenizing
 
 在生成开始的one-hot vector之前，我们要先确定词表的大小。一个简单的方法是直接使用一个字典，将所有的单词都放进去，但是这样的词表会非
 常大，而且还有单词的各种形态变化的问题。
 
 还有一个方法是直接使用字符作为词表，但这样的词表里包含的语义信息太少。
 
-#### Byte pair encoding
+### Byte pair encoding
 
 解决方案是Byte pair encoding。BPE从字符开始，然后将高频的组合放入词表中，然后不断重复这个过程，一直到词表的大小达到预定的大小。
 

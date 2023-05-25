@@ -5,7 +5,7 @@
     <div class="container wrapper">
       {{ partial "head.html" . }}
 
-      <div class="post">
+      <div class="post post-page">
 	<div class="post-header">
 	  {{ if ne .Date.Year 1 }}
 	  <div class="meta">
@@ -23,6 +23,10 @@
 	<div class="markdown">
 	  {{ .Content }}
 	</div>
+
+        <div class="toc">
+          {{ .TableOfContents }}
+        </div>
 
 	<div class="tags">
 	  {{ if ne .Type "page" }}

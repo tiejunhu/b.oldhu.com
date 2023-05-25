@@ -6,7 +6,7 @@ title = "HackerNews上值得关注的新闻(1)"
 series = "hn"
 +++
 
-### Stability AI发布了StableLM
+## Stability AI发布了StableLM
 
 Stability AI公司本身是Stable Diffusion模型背后的公司，与MidJourney的竞争差异就是开放与封闭。StableLM也是开放的大语言模型，本次发布
 了3b与7b的版本，后面会继续发布15b与65b的版本。授权采用CC BY-SA-4.0，可免费用于商业用途。
@@ -48,7 +48,7 @@ cons:
 - Small models only trained on 800B tokens, compared to 1T for llama-7B, and potentially more for other upcoming alternatives (RedPajama, etc).  I'd like to see their loss curves to see why they chose 800B.
 
 
-### LlamaAcademy 针对API文档场景用GPT4/3.5生成训练数据，对Vicuna-13B进行fine tune
+## LlamaAcademy 针对API文档场景用GPT4/3.5生成训练数据，对Vicuna-13B进行fine tune
 
 https://github.com/danielgross/LlamaAcademy
 
@@ -56,7 +56,7 @@ https://github.com/danielgross/LlamaAcademy
 
 另外，在向量数据库的使用上，它保存了API文档的向量，同时又让GPT 3.5 Turbo做了summary，然后又保存了一份。
 
-### Agents are the next AI killer app after ChatGPT
+## Agents are the next AI killer app after ChatGPT
 
 原文链接：https://www.latent.space/p/agents
 
@@ -71,7 +71,7 @@ Agent这个模式，个人认为是有问题的。hn上的争论也很多。可�
 - 向量数据库：Pinecone (now worth 700m usd), Weaviate (200m usd), and Chroma (75m usd).
 - Text to SQL: Perplexity AI (26m usd Series A), Seek AI (7.5m usd Seed)
 
-### [Astral](https://astral.sh/)
+## [Astral](https://astral.sh/)
 
 用Rust改变Python工具链
 
@@ -81,26 +81,26 @@ https://astral.sh/blog/announcing-astral-the-company-behind-ruff
 
 raise了$4m，上一家类似的公司是JavaScript领域的[rome](https://rome.tools/)，[raise了$4.5m](https://rome.tools/blog/2021/05/04/announcing-rome-tools-inc/)
 
-### [AI Incident Database](https://incidentdatabase.ai/)
+## [AI Incident Database](https://incidentdatabase.ai/)
 
 记录各种与AI有关的事故（各种AI相关的负面新闻）
 
 
-### [20年来最严重的的大米短缺](https://www.cnbc.com/2023/04/19/global-rice-shortage-is-set-to-be-the-largest-in-20-years-heres-why.html)
+## [20年来最严重的的大米短缺](https://www.cnbc.com/2023/04/19/global-rice-shortage-is-set-to-be-the-largest-in-20-years-heres-why.html)
 
 https://news.ycombinator.com/item?id=35627301
 
 2023年全球大米减产
 
-### 4chan's used car buying guide
+## 4chan's used car buying guide
 
 https://news.ycombinator.com/item?id=35630618
 
 最有趣的评论：Seeing Rust as a con in a Hackernews post, never thought I’d see the day! 第一次在hn上看到Rust是缺点。。。
 
-### [动画演示Load Balancing](https://samwho.dev/load-balancing/)
+## [动画演示Load Balancing](https://samwho.dev/load-balancing/)
 
-### [Firefly](https://github.com/GetFirefly/firefly) BEAM的另一个实现
+## [Firefly](https://github.com/GetFirefly/firefly) BEAM的另一个实现
 
 Firefly由两部分组成：
 
@@ -116,15 +116,15 @@ Firefly与BEAM的区别：
 
 hn评论里提到一个BEAM VM上的新语言[Gleam](https://github.com/gleam-lang/gleam)，由fly.io资助，看起来有点意思
 
-### [My Emacs eye candy](https://xenodium.com/my-emacs-eye-candy/)
+## [My Emacs eye candy](https://xenodium.com/my-emacs-eye-candy/)
 
 里面提到的eye candy我都用了，改天可以写一下我的emacs eye candy
 
-### [An example of LLM prompting for programming](https://martinfowler.com/articles/2023-chatgpt-xu-hao.html) by Martin Fowler
+## [An example of LLM prompting for programming](https://martinfowler.com/articles/2023-chatgpt-xu-hao.html) by Martin Fowler
 
 Martin Fowler竟然写了一篇关于ChatGPT的文章。想想之前他写过的关于敏捷，重构，DDD，微服务...等主题的影响力。。。
 
-### [The Age of the Crisis of Work, by Erik Baker](https://harpers.org/archive/2023/05/the-age-of-the-crisis-of-work-quiet-quitting-great-resignation/)
+## [The Age of the Crisis of Work, by Erik Baker](https://harpers.org/archive/2023/05/the-age-of-the-crisis-of-work-quiet-quitting-great-resignation/)
 
 以下由BingChat总结：
 
@@ -134,7 +134,7 @@ Martin Fowler竟然写了一篇关于ChatGPT的文章。想想之前他写过的
 
 现在的失业率高，有主动的因素？
 
-### RedPajama: Reproduction of LLaMA with friendly license
+## RedPajama: Reproduction of LLaMA with friendly license
 
 LLaMA是商业不友好的，facebook在[发布时说到](https://ai.facebook.com/blog/large-language-model-llama-meta-ai/): "we are releasing our model under a noncommercial license focused on research use cases"
 
@@ -145,7 +145,7 @@ LLaMA是商业不友好的，facebook在[发布时说到](https://ai.facebook.co
 - LLaMA, Alpaca, Vicuna, and Koala都是半开放的
 - Pythia, OpenChatKit, Open Assistant and Dolly是完全开放的
 
-### Show HN: AI Playground by Vercel Labs
+## Show HN: AI Playground by Vercel Labs
 
 https://play.vercel.ai/
 

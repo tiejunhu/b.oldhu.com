@@ -6,11 +6,11 @@ title = "Deep Learning(3) - 从Encoder-Decoder到Transformer"
 series = "deep-learning"
 +++
 
-### seq2seq问题
+## seq2seq问题
 
 seq2seq用于将一个序列(sequence)转换成另一个序列，典型的场景是机器翻译，语音识别，给图片生成描述，问答，语音合成，代码生成等。
 
-### Encoder-Decoder
+## Encoder-Decoder
 
 Encoder-Decoder架构是一种适用于seq2seq问题的模型。Encoder将可变长度的序列作为输入并将其转换为具有固定形状的状态，而Decoder则将该状态作为输入并生成输出序列.
 
@@ -24,7 +24,7 @@ Encoder-Decoder架构是一种适用于seq2seq问题的模型。Encoder将可变
 
 Encoder部分输入一段文字(She is eating a green apple)，经过一个RNN或LSTM网络后，生成一个固定长度的向量，然后Decoder负责将这个向量生成对应的文字。
 
-### Attention机制
+## Attention机制
 
 对于朴素的Encoder-Decoder架构，从一个固定的向量要生成各种文字，这样生成的文字与原文的对应关系肯定是比较差的。
 
@@ -45,7 +45,7 @@ Attention本质上是一组参数，可以理解为Query, Key, Value的函数。
 
 Multi-Head Attention是利用多个查询，来平行地计算从输入信息中选取多个信息。每个注意力关注输入信息的不同部分，然后再进行拼接。
 
-### Transformer
+## Transformer
 
 Google在2017年发表了一篇论文Attention is All You Need。在Encoder/Decoder中取消了传统的RNN/LSTM单元，而是完全使用attention机制重新构建了encoder和decoder，取得了非常好的效果。
 
@@ -58,6 +58,6 @@ Google在2017年发表了一篇论文Attention is All You Need。在Encoder/Deco
   * 解码器同样由N=6个相同layer组成。解码器中对self-attention子层进行了修改，以防止引入当前时刻的后续时刻输入，这种屏蔽与输出嵌入偏
     移一个位置的事实相结合，确保了位置i的预测仅依赖于小于i的位置处的已知输出。
 
-### 参考
+## 参考
 
 [1] https://imzhanghao.com/2021/09/15/self-attention-multi-head-attention/

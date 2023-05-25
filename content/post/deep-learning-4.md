@@ -6,13 +6,13 @@ title = "Deep Learning (4) - Word Embedding"
 series = "deep-learning"
 +++
 
-### 介绍
+## 介绍
 
 Word Embedding是NLP处理的第一步，要将一段文字送入模型，必须先将其转换成数字。Word Embedding将每个词转换成为一个向量。
 
 ![](/images/dl/word2vec.png)
 
-### Word2vec
+## Word2vec
 
 Word2vec是Word Embedding的方法之一。他是2013年由谷歌的Mikolov提出的。在此之前，并没有成熟的Word Embedding方法。
 
@@ -32,7 +32,7 @@ Word2vec是Word Embedding的方法之一。他是2013年由谷歌的Mikolov提�
 
 Word2vec是一个静态的模型，它试图通过一个足够大的训练数据集，给每一个词分配确定的向量。
 
-### BERT中的embedding模型
+## BERT中的embedding模型
 
 随着NLP的发展，产生了动态embedding，词的vector与句子相关，而不只是词本身。比如BERT中使用的Embedding，就与上下文相关。“I want to access my bank account”，和“we went to the river bank”，对于这两个句子中，word2vec给出的bank的向量是固定的，而bert给出的bank的向量是不同的。
 
@@ -41,7 +41,7 @@ BERT并没有限制使用哪些数据作为embedding，选择不同的层的参�
 ![](/images/dl/bert-feature-extraction-contextualized-embeddings.png)
 
 
-### 参考
+## 参考
 [1] https://jalammar.github.io/illustrated-word2vec/
 
 [2] https://jalammar.github.io/illustrated-bert/
