@@ -438,7 +438,7 @@ ul {
 }
 
 .container:has(.post-page) {
-    padding-right: 120px;
+    padding-right: 300px;
 }
 
 .recent-posts .posts .post {
@@ -614,13 +614,14 @@ mjx-container [size="s"] {
 
 .toc {
     position: fixed;
-    right: 3em;
+    right: calc(50vw - 580px);
     top: 3em;
     max-width: 300px;
     width: 300px;
     white-space: nowrap;
-    overflow: hidden;
+    overflow-x: hidden;
     padding-left: 2px;
+    height: calc(100vh - 6em);
 }
 
 .toc li {
@@ -633,7 +634,7 @@ mjx-container [size="s"] {
         display: none;
     }
 
-    .container {
+    .container:has(.post-page) {
         padding-right: 0;
     }
 }
