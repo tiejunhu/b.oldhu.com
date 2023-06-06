@@ -441,6 +441,12 @@ ul {
     padding-right: 300px;
 }
 
+
+.container:has(nav:empty) {
+    padding-right: 0;
+}
+
+
 .recent-posts .posts .post {
     margin-bottom: 45px;
 }
@@ -628,6 +634,11 @@ mjx-container [size="s"] {
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+.toc:has(nav:empty) {
+    display: none;
+}
+
 
 @media (max-width: 1300px) {
     .toc {
