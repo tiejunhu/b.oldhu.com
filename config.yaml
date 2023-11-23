@@ -5,7 +5,7 @@ title: oldhu's
 theme: ink
 enableRobotsTXT: true
 hasCJKLanguage: true    
-paginate: 5            
+paginate: 6            
 disqusShortname: "oldhu"
 
 pygmentsstyle: "vs"

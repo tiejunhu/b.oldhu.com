@@ -8,7 +8,7 @@
 		<div class="recent-posts section">
 			<div class="posts" data-pagefind-ignore="all">
 				{{ $pages := where .Site.RegularPages "Type" "in" .Site.Params.mainSections }}
-				{{ $paginator := .Paginate (where $pages "Params.hidden" "ne" true) }}
+				{{ $paginator := .Paginate (where $pages "Params.draft" "ne" true) }}
 				{{ range $paginator.Pages }}
 					<div class="post">
 						{{ partial "post-preview.html" . }}
