@@ -4,7 +4,11 @@
       <img src="/images/written-by-human-not-by-ai-white.svg" width="131px" height="42px">
       <img src="/images/made-with-emacs.svg" height="42px">
     </div>
-    <div>&#169; {{ dateFormat "2006" now }} {{ with .Site.Copyright }} {{ . | safeHTML }} | {{ end }} by oldhu with modified <a href="https://github.com/knadh/hugo-ink">Ink</a> theme on <a href="https://gohugo.io">Hugo</a> and <a href="https://vercel.com">Vercel</a></div>
+    <div>&#169; {{ dateFormat "2006" now }} {{ with .Site.Copyright }} {{ . | safeHTML }} | {{ end }} by         <span itemprop="author" itemscope itemtype="https://schema.org/Person">
+      <a itemprop="url" href="https://github.com/tiejunhu">
+        <span itemprop="name">oldhu</span>
+      </a>
+    </span> with modified <a href="https://github.com/knadh/hugo-ink">Ink</a> theme on <a href="https://gohugo.io">Hugo</a> and <a href="https://vercel.com">Vercel</a></div>
   </nav>
 </div>
 
