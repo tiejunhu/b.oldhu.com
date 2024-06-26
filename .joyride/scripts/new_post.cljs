@@ -59,12 +59,13 @@ toc = false
           splits (str/split title #" ")
           slug (str/join "-" (map str/lower-case splits))
           file-name (get-available-file-name slug)]
-    (fs/writeFileSync file-name (get-content title))
-    (p/let [open-path (.file vscode/Uri file-name)
-            doc (.openTextDocument vscode/workspace open-path)
-            _ (.showTextDocument vscode/window doc)
-            _ (.executeCommand vscode/commands "cursorBottom")]
-      (str "create " title " success"))))
+    (when title
+      (fs/writeFileSync file-name (get-content title))
+      (p/let [open-path (.file vscode/Uri file-name)
+              doc (.openTextDocument vscode/workspace open-path)
+              _ (.showTextDocument vscode/window doc)
+              _ (.executeCommand vscode/commands "cursorBottom")]
+        (str "create " title " success")))))
 
 
 (when (= (joyride/invoked-script) joyride/*file*)
