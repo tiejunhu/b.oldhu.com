@@ -6,11 +6,13 @@ theme: ink
 enableRobotsTXT: true
 hasCJKLanguage: true    
 paginate: 6            
-disqusShortname: "oldhu"
 
 pygmentsstyle: "vs"
 pygmentscodefences: true
 pygmentscodefencesguesssyntax: true
+services:
+  disqus:
+    shortname: "oldhu"
 
 params:
   avatar: /images/avatar.jpeg
