@@ -17,7 +17,7 @@ security:
 ### Add the following code to header.html partial
 
 ```html
-  {{ if not .Site.IsServer }}
+  {{ if not hugo.IsServer }}
   <script type="module">
    import { getCLS, getFCP, getFID, getLCP, getTTFB } from 'https://unpkg.com/web-vitals@3?module';
    const vitalsUrl = 'https://vitals.vercel-analytics.com/v1/vitals';

@@ -34,9 +34,7 @@ params:
   tags: true
 
 disableKinds:
-  - series
-  - tag
-  - category
+  - taxonomy
 
 taxonomies:
     category: "categories"
